@@ -11,6 +11,7 @@ def test_references():
     mandatory_files = [
         'buyer-and-trade-research.md',
         'mechanism-distillation-and-creative-direction.md',
+        'skill-optimization.md',
         'benchmark-discovery-methodology.md',
         'site-protection.md',
         'procurement-components.md',
@@ -33,6 +34,7 @@ def test_templates():
     tmpl_dir = os.path.join(os.path.dirname(__file__), '..', 'templates')
     mandatory_templates = [
         'BUYER_STRATEGY.md',
+        'SKILL_OPTIMIZATION.md',
         'edge-worker.mjs'
     ]
     for mt in mandatory_templates:

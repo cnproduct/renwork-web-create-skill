@@ -23,6 +23,8 @@
 | **PixelClone-Skill** | `bjvgukv25842-cmyk/PixelClone-Skill` | MIT | 绝对业务契约，保护表单、筛选、跳转等真实交互不被虚假截图化 | 确保复刻与原创页面具备 100% 真实可用的业务行为 |
 | **website-rebuild-skill** | `boyang-hu/website-rebuild-skill` | MIT | 证据驱动管线（Evidence-driven pipeline）与量化验证闸门 | 提供可追溯的资产镜像与量化代码校验 |
 | **geo-optimizer-skill** | Princeton KDD 2024 Research | 开放学术协议 | 全球 GEO 生成式 AI 引擎优化、47 种提升引用率手段、llms.txt 规范 | 打造面向 ChatGPT Search、Perplexity 等生成式引擎的流量引力场 |
+| **Anthropic Skill Creator** | `anthropics/skills/skill-creator` | Apache 2.0 | Skill 结构规范、工作流诊断、两层差距分析与严谨的行为对照评估 | 驱动通用 Skill 优化模式，诊断能力缺口与清除冗余无用提示词 |
+| **Hugging Face Skills** | `huggingface/skills` | Apache 2.0 | 数据集/模型安全沙箱边界与评测标准规范 | 驱动从 Hugging Face 发现专业资源，明确界定 Skill 与 Dataset/Model 的技术边界 |
 
 ---
 

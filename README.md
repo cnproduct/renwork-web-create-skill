@@ -1,14 +1,15 @@
-# RenWork Web Create Skill v4 🌐
+# RenWork Web Create Skill v4.1 🌐
 
-[![Version](https://img.shields.io/badge/version-4.0.0-516b4b.svg)](https://github.com/cnproduct/renwork-web-create-skill)
+[![Version](https://img.shields.io/badge/version-4.1.0-516b4b.svg)](https://github.com/cnproduct/renwork-web-create-skill)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Buyer-JTBD](https://img.shields.io/badge/Buyer%20Research-JTBD%20%2B%20Committee-blue.svg)](#)
 [![Creative-Direction](https://img.shields.io/badge/Creative-Material%20Storytelling-purple.svg)](#)
 [![GEO-Citability](https://img.shields.io/badge/GEO-Princeton%20KDD%202024-emerald.svg)](#)
+[![Universal-Skill-Optimization](https://img.shields.io/badge/Optimization-Universal%20Distillation-orange.svg)](#)
 [![Security-Builtin](https://img.shields.io/badge/Security-Turnstile%20%2B%20CSP-critical.svg)](#)
 
-> **Driven by Overseas Buyer Insights: Original Design, Mechanism Distillation & B2B Growth**  
-> 企业级出海独立站总控技能 v4：以海外买家洞察驱动原创设计与业务增长。
+> **Driven by Overseas Buyer Insights: Original Design, Strict Clone & Universal Skill Distillation**  
+> 企业级出海独立站与通用技能蒸馏总控技能 v4.1：以海外买家洞察驱动原创增长，兼备 1:1 严格复刻与通用技能蒸馏进化。
 
 ---
 
@@ -16,21 +17,22 @@
 
 现有网站复刻与建站工具往往陷入两个极端：要么简单像素级“抄作业”，把竞品的错误甚至专有侵权词原样照搬；要么全凭 AI 天马行空臆造“好看但不符合工业采购常识”的假大空页面。
 
-**RenWork Web Create Skill v4** 完成了革命性质变：从 v3 的“证据复刻→原创建站”升级为 **买家与行业深研 → 关键页和成功机制蒸馏 → 独特视觉创造 → 采购决策支持 → SEO/GEO 验证**。
-
-核心使命：**网站既能让海外专业买家感受到企业独特的产品审美与精湛工艺，更能帮助他们在几分钟内识别市场机会、规避供应风险、顺畅完成工程选型与大宗采购。**
+**RenWork Web Create Skill v4.1** 完成了革命性质变，构建起三轨一体化总控体系：
+1. **Mode A（默认：买家洞察原创增长）**：买家与行业深研 → 关键页和成功机制蒸馏 → 独特视觉创造 → 采购决策支持 → SEO/GEO 验证；
+2. **Mode B（复刻：1:1 严格证据复刻）**：当明确要求完整复刻时，全站探针取证、CSS 令牌提取、文化双轨重命名去风险化、100% 绝对业务契约保障；
+3. **Mode C（通用：Skill 优化与蒸馏）**：内置通用优化模式，支持优化自身及任意领域 Skill，执行两层诊断、GitHub/Hugging Face 资源甄别、六步机制蒸馏链与三态验证交付。
 
 ---
 
-## 🏛️ v4 六大核心能力升级 (Core Advancements)
+## 🏛️ 三轨工作流总控矩阵 (Triple-Track Workflow)
 
 ```mermaid
-flowchart LR
-    A["① 买家任务与采购委员会研究<br>(细分品类×4大角色×采购阶段)"] --> B["② 行业变化与官方贸易关税<br>(WTO / Access2Markets / 季节反推)"]
-    B --> C["③ 三互补标杆机制蒸馏<br>(对照学习 / 反事实检查 / 防过度整齐化)"]
-    C --> D["④ 行业叙事与原创视觉导演<br>(视觉从材料与工艺中生长 · 三方向提案)"]
-    D --> E["⑤ 采购决策支持工具装配<br>(20GP/40HQ 装柜测算 / 选型矩阵)"]
-    E --> F["⑥ 采购知识型 SEO/GEO 与安全防护<br>(llms.txt / 5合1 Schema / CSP / 经验回写)"]
+flowchart TD
+    Task([用户任务输入]) --> Check{判断核心意图}
+    
+    Check -- "优化某个 Skill<br>(包含指令: 优化这个 Skill)" --> ModeC["Mode C: 通用 Skill 优化与蒸馏<br>(两层诊断 / GitHub+HF甄别 / 六步蒸馏链 / 三态验证)"]
+    Check -- "明确指令 1:1 复刻/克隆" --> ModeB["Mode B: 完整取证复刻分支 (v3)<br>(全站探针 / 双轨重命名 / 业务契约 / 图实核验)"]
+    Check -- "建站 / 独立站 / 重构 / 默认" --> ModeA["Mode A: 买家洞察原创设计 (v4)<br>(JTBD / 采购委员会 / 材料叙事 / 装柜测算 / GEO)"]
 ```
 
 1. **买家任务与采购委员会研究 (JTBD)**：
@@ -70,10 +72,39 @@ flowchart LR
 | **Pattern2Code & Design2Code** | 布局还原评测、识别模型过度整齐化（过度对齐）偏差 | 评测原创页面，保护重点大图与特色排版节奏 |
 | **b2b-limestone-geo-site-builder** | 全球标杆排查三大巨头模型、文化双轨重命名、图实一致质检 | 驱动标杆解构、去风险重构与全链路询盘闭环 |
 | **b2b-global-brand-site-master** | 21 行业外贸决策链、默认站点安全防护、海运装柜测算器 | 驱动行业选型、默认边缘安全网关与整柜配载计算 |
+| **Anthropic Skill Creator** | Skill 结构规范、工作流两层差距分析、自动化评估测试 | 驱动通用技能优化模式，诊断能力缺口与清除冗余提示词 |
+| **Hugging Face Skills** | 数据集/模型沙箱边界与评测基准规范 | 规范外部资源甄别，明确界定 Skill 与 Dataset/Model 的技术边界 |
 
 ---
 
-## 🎯 三大典型行业验收场景 (Definition of Done)
+## 🧬 通用 Skill 优化与蒸馏能力 (Mode C)
+
+支持按需加载优化任意领域的 Skill（包括优化自身）：
+
+```bash
+# 典型调用指令
+用 renwork-web-create-skill 优化这个 Skill：〈本地路径或仓库地址〉。结合实际任务和失败案例，从本机、GitHub、Hugging Face 寻找专业能力，蒸馏融合后验证效果。
+```
+
+### 1. 通用演进原则
+**理解任务 → 诊断缺口 → 寻找专业方法 → 学习有效机制 → 适配创造 → 对照验证 → 沉淀经验**
+
+### 2. 两层精准诊断模型
+- **通用维度**：需求理解、工作流程、证据质量、工具使用、输出标准、验证机制、维护成本与提示词信噪比；
+- **领域维度**：仅根据目标任务动态注入（如数据清洗、复杂算法、排版渲染），**严禁向非出海建站 Skill 强加外贸、关税或 SEO/GEO 规则**。
+
+### 3. 六步机制蒸馏链
+拒绝简单复制大段提示词，所有采纳的机制按六步链记录演进：
+`来源观察 → 有效机制 → 适用条件 → 目标 Skill 适配 → 产物具体变化 → 验证证据`
+
+### 4. 经验三态分类 (Three Confidence States)
+- **[已验证 Verified]**：有自动化测试脚本或真实执行日志通过；
+- **[推导规则 Inferred Rules]**：合乎逻辑推导得出，明确标明适用范围与假设前提；
+- **[待试验 Hypothetical]**：新设想或未经充分实操检验，标注待测试，绝不伪装为成熟经验。
+
+---
+
+## 🎯 四大典型验收测试场景 (Definition of Done)
 
 ### 场景 A：石材工程采购 (Architectural Stone / Limestone)
 - **采购角色**：建筑师、景观工程师、商业总包采购；
@@ -90,13 +121,17 @@ flowchart LR
 - **核心任务**：RoHS/REACH 环保认证、电压公差、接口标准、元器件替代料方案；
 - **视觉风格**：深钛灰与精密蓝底色、等宽工业字体 (Mono)、线框剖面图、无多余装饰动效。
 
+### 场景 D：通用 Skill 优化与跨领域蒸馏 (Universal Skill Optimization)
+- **核心任务**：执行两层缺口诊断，剔除夸大自述与无效提示词，生成 `templates/SKILL_OPTIMIZATION.md` 报告并通过自动化测试；
+- **合格标准**：无强制无关规则、代码防御性提升、三态经验分类准确归档。
+
 ---
 
 ## 📦 Directory Structure (目录结构)
 
 ```text
 renwork-web-create-skill/
-├── SKILL.md                          # 核心技能指令与端到端十步决策树 (v4.0.0)
+├── SKILL.md                          # 核心技能指令与三轨工作流路由 (v4.1.0)
 ├── README.md                         # 技能使用手册与架构解析
 ├── LICENSE                           # MIT 开源协议
 ├── assets/
@@ -111,6 +146,7 @@ renwork-web-create-skill/
 ├── references/
 │   ├── buyer-and-trade-research.md   # 买家任务、采购委员会与官方贸易格局研究指南
 │   ├── mechanism-distillation-and-creative-direction.md # 机制蒸馏与原创视觉导演指南
+│   ├── skill-optimization.md         # 通用 Skill 优化、两层诊断与机制蒸馏深度指南
 │   ├── benchmark-discovery-methodology.md # 全球标杆排查与三大巨头模型深度方法论
 │   ├── site-protection.md            # 默认站点防护、防抓取与反镜像嵌套规范
 │   ├── procurement-components.md     # 行业采购组件、装柜测算器与 RFQ 协议
@@ -124,6 +160,7 @@ renwork-web-create-skill/
 │   └── skill-fusion.md               # 外部资源与上游依赖融合台账
 ├── templates/
 │   ├── BUYER_STRATEGY.md             # 项目级买家战略与增长简报标准模板
+│   ├── SKILL_OPTIMIZATION.md         # 通用 Skill 优化与机制蒸馏报告模板
 │   ├── edge-worker.mjs               # Cloudflare / Edge 安全防护与 API 路由
 │   ├── assets/js/sourcing_estimator.js # 20GP / 40HQ 国际海运集装箱装柜测算模块
 │   └── b2b-factory-starter/          # 开箱即用的工业出海官网高保真套件

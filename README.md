@@ -1,11 +1,23 @@
-# RenWork Web Create Skill · 3.0.0
+# RenWork Web Create Skill · 4.0.0
 
-先通过真实证据建立参考站复刻基线，拆解其 SEO/GEO 与采购转化机制，再为目标企业创造自己的独立站。最终交付可运行代码、预览和证据；首页相似、换色换名或研究报告均不能替代完整结果。
+**先选赛道与买家，再从行业 Top 10 中选对标。** 比较 SEO、GEO、可比流量、设计与技术采购能力，深读各自领先者，复现关键页和有效机制，再创造目标企业的独特网站。最终交付可运行代码、预览和证据。另有内置通用模式：从本机、GitHub、Hugging Face 发现专业方法，优化指定的任意 Skill。
+
+## 两种模式
+
+- **建站**：行业/贸易机会 → 采购需求 → Top 10 候选 → 分维度择优 → 关键页与机制蒸馏 → 原创设计 → SEO/GEO与采购验收。
+- **优化 Skill**：真实任务/失败 → 能力缺口 → 专业资源发现 → 机制蒸馏 → 最小改动 → 前后验证 → 经验回写。
+
+建站前必须先形成选择依据。Top 10 是相关候选池；“流量最高”须有同口径数据，“GEO 最好”须有问题集与平台采样。未知数据保留未知，不把内部评分当排名。
 
 ## 这次融合了什么
 
 | 来源 | 核心方法 | 实际落点 |
 | --- | --- | --- |
+| limestone site builder | 先发现再复刻，技术/视觉/长尾分工，文化命名和图实匹配 | 阶段零选型与原创机制；历史品牌是待验证种子 |
+| OpenSEO / SE Ranking / competitor-profiling | 查询集发现竞争格局、可比档案、关键词与入口缺口 | Top 10 候选、分榜择优、相关高流量入口深读 |
+| JTBD / product-marketing / 外贸研究 | 买家任务、采购委员会、产品×国家与贸易情景 | 赛道决定、买家决策图与内容行动 |
+| frontend-design / taste / deslop | 行业驱动的视觉方向、节奏与精选动效 | 三个原创方向择优、统一设计与移动体验 |
+| Hugging Face / 本机 Skill 创建与沉淀 | 资源分类、评测思路、证据回写 | 按需发现与通用优化；不默认模型训练 |
 | Jane web-clone | 真源码、技术分流、证据分级、设计 DNA、RAW REPLAY | 基线取证与复杂特效分支 |
 | Nolan skills | computed styles/组件状态、可验证目标、迭代停止与状态 | DESIGN、完成契约、缺口驱动换 skill |
 | PixelClone | 布局蓝图、视觉/业务真相分离、控件与素材边缘 QA | 保真基线和现有业务契约 |
@@ -18,26 +30,34 @@
 ## 典型调用
 
 ```text
-用 renwork-web-create-skill，先完整复刻参考站 https://reference.example 的约定页面与交互，
-分析目标国家/语言的 SEO/GEO 入口、内链、引用与采购路径，再用 /path/to/company 的真实资料
-在 /path/to/project 创造目标品牌的新站。一种 skill 不够就按未通过的检查组合其他能力；
-交付源码、预览、流量迁移图、原创变化表和分层验收，不把未知流量、收录、引用或收件写成成功。
+用 renwork-web-create-skill，基于 /path/to/company 的真实产品和履约能力，
+先研究细分赛道、目标市场和海外买家采购需求，筛选行业 Top 10 网站候选；
+分别选出 SEO、GEO、可比流量、设计与技术采购方面值得深读的标杆，说明依据。
+把高价值入口、设计与采购机制融合，在 /path/to/project 创造目标品牌的原创站。
+交付选型与标杆表、代码、预览和验收；不能凭知名度或估算声称全球第一。
+```
+
+```text
+用 renwork-web-create-skill 优化 /path/to/target-skill（也可给仓库地址）。
+先检查真实任务和失败，再从本机、GitHub、Hugging Face 寻找专业能力，
+蒸馏适用方法并实施最小改动，验证新旧行为，交付改动、来源与剩余缺口。
 ```
 
 只要求忠实复刻/局部优化/只读分析时保持该范围。公开发布按已有授权，不因调用本 skill 自动发布或向第三方发询盘。
 
 ## 工作流与结果
 
-1. 确定实际目标、企业资料、路由/产品/语言/发布范围及完成标准。
-2. 采集源码/部署资源、浏览器 DOM/styles、网络与状态；建立全站覆盖清单和只读证据。
-3. 按能力缺口换用或组合 skills，修复并同范围复测，交付可运行复刻基线。
-4. 建立查询→入口页→内容集群→内链→信任→CTA→询盘的 `TRAFFIC_MAP.md`，区分实测、观察、估算和假设。
-5. 用目标事实兑现 `ORIGINALITY.md`，实施独特品牌叙事、应用组织、构图、影像和选型内容。
-6. 将 SEO/GEO 写入共享模板和真实路由，验证 build、浏览器、公开状态，再独立验证索引、引用与询盘。
+1. 复用企业事实，比较细分赛道、市场与趋势，按行业识别采购角色和痛点。
+2. 全球发现并筛选十个相关独立域名，逐项记录来源、口径、设计和采购证据。
+3. 分维度选择通常 3–5 个互补标杆，形成 `BUYER_STRATEGY.md`，再进入复刻。
+4. 对约定关键页/机制取证与复现；明确要求完整复刻时覆盖完整范围。
+5. 建立 `TRAFFIC_MAP.md`，将查询、入口、内容、内链、证明与采购动作迁移到目标页面。
+6. 根据真实产品、行业语言与买家任务提出三个视觉方向，择优形成统一原创站和 `ORIGINALITY.md`。
+7. 验证设计、图实匹配、交互、采购路径与工程状态，独立记录索引、引用和询盘结果。
 
-项目结果包括代码/预览、路由与资产台账、WORKLOG、TRAFFIC_MAP、ORIGINALITY 和 design-qa。小项目可以合并报告，但每个结论仍有范围、状态和可定位证据。
+网站交付包括代码/预览、路由与资产台账、BUYER_STRATEGY、TRAFFIC_MAP、ORIGINALITY、WORKLOG 和 design-qa。小项目可以合并报告，结论仍有可定位证据。选型记录是工作产物，不增加重复审批。无法量化流量/GEO时可暂定实施，但不得宣称已选出其冠军。
 
-复刻与原创分别验收；原创不以像素等同参考为门槛。公开竞争站数据不证明真实流量，内部得分不证明搜索排名。没有后台权限可以完成公开研究与代码，流量归因保持 UNKNOWN。
+通用优化交付目标 Skill 的可审阅改动与 `SKILL_OPTIMIZATION.md`；按目标领域评测，不对所有 Skill 套用网站标准。[完整流程](references/skill-optimization.md)
 
 ## 自带工具
 
@@ -64,6 +84,9 @@ SEO 配置与真实边界见 [SEO/schema 契约](references/b2b-seo-schema-spec.
 
 ## 参考资料与模板
 
+- [行业选型、采购洞察与 Top 10 标杆发现](references/benchmark-discovery.md)
+- [通用 Skill 优化与蒸馏](references/skill-optimization.md)
+- [行为评测场景](references/evaluation-scenarios.md)
 - [复刻/原创验收](references/pixel-clone-contract.md)
 - [流量来源和原创迁移](references/traffic-and-originality.md)
 - [SEO 与 schema](references/b2b-seo-schema-spec.md)

@@ -1,6 +1,6 @@
 # 融合来源、环境发现与能力补齐
 
-2026-10-07 逐仓库阅读。以下是方法提炼与路由，不是 vendored 脚本；本仓库没有复制上游实现。使用上游工具时读取当前版本说明、许可及实际 CLI，不把作者机器路径或宿主专用约束写成通用规则。
+2026-10-07 核对来源；阅读范围逐项注明。以下是方法提炼与路由，不是 vendored 脚本；本仓库没有复制上游实现。使用上游工具时读取当前版本说明、许可及实际 CLI，不把作者机器路径或宿主专用约束写成通用规则。
 
 ## 五个指定来源
 
@@ -44,3 +44,36 @@
 | FONT-01 | 移动标题换行错，字体 URL 返回 HTML | HTTP 初探 | OpenDesign browser harvest + PixelClone 文本蓝图 | 真字体 manifest/两侧截图 | 按原视口重测 | 如许可不明，原创用已授权目标字体 |
 
 已通过的项保留，追加同一范围的复测，不靠缩减页面/功能/样本让门变绿。剩余 gap 为零且检查都有证据才称范围内完整；缺浏览器或素材时记录 BLOCKED 并完成其他模块。
+
+## v4：先选赛道与采购任务，再选标杆
+
+以下专业方法用于 [前置发现](benchmark-discovery.md)、[原创迁移](traffic-and-originality.md) 和 [通用 Skill 优化](skill-optimization.md)。来源观点不是目标企业事实；示例域名只是待验证种子，不作为固定榜单。
+
+| 来源/核对版本 | 阅读范围与提炼 | 适用边界 |
+| --- | --- | --- |
+| [cnproduct/b2b-limestone-geo-site-builder](https://github.com/cnproduct/b2b-limestone-geo-site-builder/tree/408fa215057a82a2bd7ec8af4be8449642e7c7f8) · MIT | `references/benchmark-discovery-methodology.md` 全文；`SKILL.md` 发现、命名、工程、GEO及RFQ相关段；README。先发现再复刻，技术/视觉/长尾分工，文化命名、图实匹配与跨行业迁移 | 用户提供的三会话整理是历史材料，本次未逐条复核原始私有会话。保留工作方法，不把排名、溢价、产能、认证、固定爬虫/端点数及“全行业100%成功”升级为事实；改名/改图不自动证明权利 |
+| [every-app/open-seo](https://github.com/every-app/open-seo/tree/deb44913c2e345ec29ce6fb066a94ca428ebc681) · MIT | `plugins/openseo/skills/competitive-landscape/SKILL.md`、`competitor-analysis/SKILL.md` 全文。查询集发现市场、区分搜索与业务竞争者、相关入口/主题/外链、由市场到单站深读 | 本项目扩为十站比较，再精选深读。不继承 OpenSEO 项目写回、收费调用、报告插件硬依赖；工具名须在实际环境发现 |
+| [seranking/seo-skills](https://github.com/seranking/seo-skills/tree/fd6d1408f2e6a06454d81c07c29e0f04342eb9ba) · MIT | `skills/seo-competitor-gap-analysis/SKILL.md` 全文。竞争词集交叉、意图/主题分组、原始数据与页面行动关联 | 不默认美国、不强制 MCP；出现于多家竞品不等于适合目标企业；内容薄弱不能只靠字数/URL判断；不沿用固定积分/机会数或自动创建跟踪项目 |
+| [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/f719a8079c694e3267d47b6b60a62aa926055f2c) · MIT | `skills/competitor-profiling/SKILL.md` 全文；`product-marketing`、`content-strategy`、`free-tools` 的定位/角色、内容决策与工具原则相关段。可比较档案、观察/推断/行动分层、采购委员会与有用工具 | 不强制 Firecrawl/DataForSEO；本任务默认深研，覆盖全部候选的证据表后再深读精选站。公开客户数不能由流量“验证”，需独立事实；未知流量不自行估算 |
+| [deanpeters/Product-Manager-Skills](https://github.com/deanpeters/Product-Manager-Skills/tree/1b5a524ebb95e9497fa3f25002d8b8ec528d4444) | `skills/jobs-to-be-done/SKILL.md` 核心任务、痛点/收益与研究限制段 | 提炼功能/情绪/社会任务；没有真实访谈不能称需求已验证。方法提炼，不复制实现，代码复用时另核许可 |
+| [liangdabiao/exa-research-mcp-skill](https://github.com/liangdabiao/exa-research-mcp-skill/tree/6a345be5df349e00c7c468e5d5d09ac7bf8d09b1) | `skills/foreign-trade-research/SKILL.md` 市场/本地语言/渠道与证据相关段 | 提炼产品×国家与贸易研究；不继承固定 TOP20 配额、报告字数和 Exa 依赖 |
+| [anthropics/skills](https://github.com/anthropics/skills/tree/683bc88e56f3e09ba94f7055977f3d3aa499f202) | `skills/frontend-design/SKILL.md` 行业、受众、视觉方向与审视相关段；`skill-creator/SKILL.md` 创建/评测段另于 2026-10-07 读取 main | 提炼行业驱动设计、实际案例迭代；不批量复制提示词、强制框架或工具。逐 skill 许可分别核对 |
+| [samber/cc-skills](https://github.com/samber/cc-skills/tree/123cb155f5ab5751fc13c8027fbfa5eb0d3773c6) | `skills/frontend-design-deslop/SKILL.md` 本机版本；`skills/deep-research/SKILL.md` 证据/综合/审视段 | 策略→设计系统→实现→审视；不继承固定字体禁用、全量提示词或强制多 agent 数量 |
+| [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill/tree/b482f7a970abb98c4108d4a9f761e458c64cefc8) · MIT | `skills/taste-skill/SKILL.md` brief、variation/motion/density与审视相关段，非全量加载 | v2 标为 experimental；提炼情境化取舍，不强制动效库、图标依赖或所有页面高动态 |
+
+本机 `renwork-site-audit-optimizer` 的品类/季节采购反推、`skill-creator` 的渐进披露与行为检查、`renwork-smart-skills-creator` 的 observed/derived 与证据回写已阅读并提炼。执行时发现真实路径，不写死本机安装位置，不强制安装这些 skills。流程保持自包含。
+
+## Hugging Face：专业资源分类使用
+
+- [huggingface/skills](https://github.com/huggingface/skills/tree/ca0325bb20b2d0a1b2efa893670c4c72f79e707b)：已读 `skills/huggingface-datasets/SKILL.md` 的 Viewer/只读检索与分页，及 `huggingface-community-evals/SKILL.md` 的模型评测段。数据集检查和模型评测是可选能力，不证明网站采购洞察或 Skill 行为改善。逐资源另核许可；不默认上传私密轨迹、租 GPU 或训练模型。
+- [SALT-NLP/Design2Code](https://huggingface.co/datasets/SALT-NLP/Design2Code)：已读数据卡，HTML/截图布局评测；原图被占位图替换，适用于还原检查，不用作品牌影像质量或买家需求证据。
+- [knguyennguyen/pattern2code](https://huggingface.co/datasets/knguyennguyen/pattern2code)：已读数据卡与任务说明，借鉴“保留重复布局中的真实例外”检查；研究数据中原网站的权利不能由数据集许可替代。
+- [HuggingFaceM4/WebSight](https://huggingface.co/datasets/HuggingFaceM4/WebSight)：已读合成数据说明，未纳入默认创造参考；合成网页不证明真实行业审美或采购需求。
+
+以上仅核对资源与提炼方法，本仓库未运行这些模型/数据集基准。使用时记录实际 revision/配置、样本、许可、条件与结果，不能把外部模型分数写成本 Skill 分数。
+
+## 从这次优化得到的通用方法
+
+`用户目标/已证实问题 → 选择专业参考 → 读取实际规则与边界 → 找出缺口 → 按职责组合 → 小范围实施 → 同条件验证 → 只沉淀可复用结论`。
+
+v3 的工具回归与可审阅代码是已有本地实现证据；v4 的前置战略、专业来源融合与通用优化在本次形成指令能力，其真实网站增长效果仍须实际项目验证。历史建议、计划和来源宣传不记为成功结果；版本升级与 GitHub 同步不等于客户网站上线。

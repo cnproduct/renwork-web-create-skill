@@ -2,19 +2,26 @@
   "date": "2026-10-07",
   "type": "offline_forward_decision_comparison",
   "baseline_commit": "0b6feeffc6b6cc86bc8d3ae076f4c0e0186d8169",
-  "candidate_version": "4.0.0",
+  "candidate_version": "4.2.0",
   "model_settings": "Both independent agents inherited the same parent model and reasoning configuration; no overrides. Exact model identifier was not reported by the runner.",
   "runs_per_version": 1,
   "scope": "Two task outputs per version; no network, deployment, live traffic measurement or CSV implementation. All fixture companies/domains and numbers are synthetic.",
   "generation_instructions": "用指定 Skill，依据 fixture 为该企业的新站完成复刻前决策：建议主攻方向、采购信息优先级、对标选择及学习内容、证据缺口和可继续实施的范围。输出实际决策，不只复述工作流程。将结果写到指定输出目录 decision.md，最多1200中文字。随后对任务“用这个 Skill 优化一个将CSV转换为JSON的技能，已知会把001变成1并把缺失金额变成0”给出最小实施与验证方案，写到 conversion.md，最多500中文字。只读取相关 Skill 与其参考和给定资料，不读取本轮聊天、评测规则或其他评测结果。",
   "fixture": "以下均为离线模拟评测资料，.example 域名不可访问，不是市场事实。以给定数据完成判断，外部未知保留未知；不联网、不执行外部动作、不修改目标技能。\n企业可供应户外石灰石铺装；真实资料只有产品尺寸、表面工艺、实拍图、样品与定制流程。没有认证报告、成本、产能和交期。目标市场澳大利亚，买家是景观设计指定者及项目进口商。客户询问湿区使用证明、批次色差、规格组合、交付准备。另有很少资料的装饰小摆件品类。\n提供十个同品类相关独立域名的研究资料（以下所有来源均为模拟输入）：\nA alpha.example：石灰石零售品牌，流量商P，2026-09澳大利亚桌面，全站访问量900000；品牌词80%，没有品类流量。截图显示大图/杂志构图、移动选型清晰。公开资料未见测试报告。\nB beta.example：景观建材商，流量商Q，2026-09澳大利亚桌面，石灰石目录自然搜索估算40000；非品牌采购/应用词，重点入口 /limestone /pool-guide /finishes，能追踪选型→规格→样品。设计普通。\nC gamma.example：技术供应商，流量商Q，2026-09澳大利亚桌面，石灰石目录自然搜索估算30000；/test-guide /specs /installation，有可定位实验室报告和适用限制。BIM下载到样品路径清楚。\nD delta.example：视觉品牌，流量商P，2025全年英国全设备全站访问量2000000；石灰石叙事影像出色，移动端测试没有完成。\nE epsilon.example：工程供应商，流量未知；完整技术文档、项目询盘字段；四条目标采购问题的SERP快照出现两次。\nF zeta.example：进口商，流量未知；公开类目/工艺筛选、包装资料和样品流程；采购问题快照出现一次。\nG eta.example：石材品牌，流量未知；产品与场景匹配，设计留白有特色；技术文件缺失。\nH theta.example：工程经销商，流量未知；产品比较表、安装指南、项目询价；视觉可用但普通。\nI iota.example：专业石材媒体，流量未知；公开指南引用技术资料，购买动作是转到供应商；不是供应商。\nJ kappa.example：石灰石零售商，流量未知；家装灵感与零售购物车，B2B流程不明确。\nAI采样：同一搜索平台、相同四个中性采购问题、2026-10-07各两次，共8次尝试，其中2次请求失败。6次有效回答中C有3次准确引用，B有2次，A有1次。另有A在一次不同平台被提及但无引用，该平台未采样其他问题；其他域没有系统采样。\n历史资料声称A是全球GEO第一、目标工厂产能50000平方米、只要添加llms.txt就能取得AI流量，未提供相应证据。\n",
   "candidate_sha256": {
-    "SKILL.md": "35a142e8c2aa034dcfe80793b509fd3f67334a2ec3e82502de157b1956beac95",
+    "SKILL.md": "ac3fe45716ab50fb6a290ea1d6aeb28b3ce6e303d483c0b6435c70bbbddcfe0e",
     "references/benchmark-discovery.md": "232307c292410c6bdb419f40b14d400a51d278786f78552b88640effac267c3b",
-    "references/skill-optimization.md": "5bd6dfb6c428baed0623f4fbff8f1ea7acd861ebcddd2baeb51254e618af56a2",
+    "references/skill-optimization.md": "7951e64bb83c9a37d64d16d5fbea0194978865d14894864f5fede371c3f5f23f",
     "references/traffic-and-originality.md": "6718a32d0cf24c3276eb10cc901af9ffc3392aea73c0863c3cef6b8cf897cddf",
     "references/pixel-clone-contract.md": "3edd5888c5b69c65dc7d07fe1a49f5ca17c2bd483e5026c003db0128b15f0c10",
-    "references/skill-fusion.md": "821ed483baf162b85a2637516172dbe587021d3c08be3a1adb9b10055f6099f5"
+    "references/skill-fusion.md": "fc666236826cafe0a87b20cd75001a39a39a5835ca8884789928a5ee54cff48e",
+    "references/benchmark-discovery-methodology.md": "6c164a2ff07c202c57eb4f0392091b3992168cf30661be727eb7cd5e7b080f17",
+    "references/buyer-and-trade-research.md": "f57d91abc7a234cd3d5b6277f3009b116d349952ab2a6a4c9dc212080f353e2d",
+    "references/mechanism-distillation-and-creative-direction.md": "71d815afdc3077dd04e2ab9ae1e941b1b4951b603837c311bdd3efb966d0b710",
+    "references/rfq-backend.md": "b361eceadff9940f019e29c06d65c1c9aac3a1ee078ddb11b2015793d56dc9d8",
+    "references/turnstile.md": "c9b8f5d476527f85aefec48abebf90e83c901b30e982473fb8d4b979ab182728",
+    "templates/BUYER_STRATEGY.md": "3db727ae4bbd47b80edc3060f22b40438cc2ab0dc38378517a5e9665134a1544",
+    "templates/SKILL_OPTIMIZATION.md": "483fb75ca4039e663defe444d7e7e650dbd3a79cb6da1997de4d1c51332c0b91"
   },
   "outputs": {
     "baseline": {
@@ -22,8 +29,8 @@
       "conversion": "# 最小实施与验证方案\n\n此Skill面向建站，不适合作为CSV转换器改造规范；只复用“事实分离、定位根因、实际验证”的方法，不引入网站、SEO或复刻流程。\n\n先读现有转换技能、实现和全部调用入口，定位自动类型推断及空值兜底。最小修复放在共享解析处：用现有依赖或标准库csv读取，默认保留文本，标识符“001”始终输出字符串；金额缺失输出null，实际零与缺失分开。明确金额字段契约后才转数值；未约定前保留非空金额文本，非法值报行号和字段，不能用0吞错。缺列、列数不符须报错；先完成解析再写输出，避免失败覆盖原文件。\n\n同步技能说明及一个可运行回归检查：输入id,amount下的001空金额、002金额0，断言输出[{\"id\":\"001\",\"amount\":null},{\"id\":\"002\",\"amount\":\"0\"}]；加入带引号逗号字段、非法金额和缺列，验证正确解析或明确失败。经原调用入口跑检查，确认错误不改原输出。这里仅给方案，未取得转换器源码，未实施或运行验证。\n"
     },
     "current": {
-      "decision": "# 复刻前决策\n\n**PROVISIONAL。**以下仅据离线模拟资料，不是市场实测。主攻澳大利亚户外石灰石铺装，以景观设计指定者的选型、项目进口商的样品与交付准备为主线。真实尺寸、工艺、实拍和定制流程可支撑内容；湿区适用作为待证明问题，不能承诺合规。装饰小摆件资料少、偏离当前询盘，暂缓。利润、需求增长、贸易规则、采购周期均未知。\n\n采购信息顺序：①湿区测试、适用限制与证据缺口，关系能否指定；②批次色差、样品代表性及确认办法，关系验收；③真实规格组合、工艺对比，关系设计选型；④包装、数量、到货窗口等交付准备，关系进口采购。这是风险排序，不是假定询问频率。指定者走“应用→规格→证据→索样”；进口商走“规格/数量→样品确认→交付条件询盘”。报价与交期均待核实。\n\n## 十域候选及取舍\n\n均来自给定资料；未知流量不计为零，未给页面路径不补造。\n\n|候选|类型与选择|\n|---|---|\n|A alpha.example|零售品牌；入选视觉主线，大图构图、移动选型；不借认证或品牌权威|\n|B beta.example|景观建材；入选SEO及相关流量入口、选型到样品机制|\n|C gamma.example|技术供应；入选GEO样本、报告与适用限制、技术下载路径|\n|D delta.example|视觉品牌；英国旧期全站口径且移动未测，暂缓|\n|E epsilon.example|工程供应；技术/RFQ备选，四问题SERP出现两次，流量未知|\n|F zeta.example|进口商；入选工艺筛选、包装与样品流程；SERP出现一次|\n|G eta.example|石材品牌；场景/留白备选，技术文件不足|\n|H theta.example|工程经销；比较表、安装与询价备选，与B/C职责重叠|\n|I iota.example|专业媒体；指南来源线索，不充当供应商转化标杆|\n|J kappa.example|零售商；B2B路径不明，暂不学习购物车|\n\n## 分维度与迁移\n\n流量仅B/C可排序：Q、2026-09、澳大利亚桌面、石灰石目录自然搜索估算，B四万>C三万。A为P同期同地区设备全站九十万，品牌词80%、无品类数据；D为P、2025全年英国全设备全站二百万，均不与B/C混排。\n\nSEO优先B：深研 /limestone、/pool-guide、/finishes 的查询→规格→样品路径；这些是观察入口，未证明URL流量前三。C的 /test-guide、/specs、/installation 用于对照技术证据→下载→索样。\n\nGEO同平台同四题各两次：有效6/尝试8，失败2次排除引用分母；准确引用C 3/6、B 2/6、A 1/6。仅称已测样本C领先；A另平台一次无引用提及单列，不能合并，其他域未系统测。地区语言、模型与引用URL仍缺。\n\n融合A视觉、B入口、C证据结构、F采购流程，产出原创应用选型、规格工艺、索样/RFQ页面；图文使用自身素材。C报告只能学习组织方式，不能证明本企业产品。\n\n可继续：本地信息架构、真实规格/实拍、样品定制页及证据待补栏。补齐湿区报告、批次资料、包装、成本产能交期与素材许可后再作相应声明；同视口浏览器取证、交互与公开上线验收未执行。历史“全球GEO第一”“产能五万平方米”无证据，弃用；llms.txt可选，不能保证AI流量。\n",
-      "conversion": "# CSV→JSON 技能最小优化方案\n\n路由到通用 Skill 优化；不引入网站、SEO或Top 10研究。当前只有失败描述，转换 Skill 源码与运行环境未给，根因和修复结果均未验证。\n\n实施时先读目标入口、转换函数、全部调用方和已有检查，保存旧版输出。重点检查自动数值推断与缺失值默认0；在共享转换处修复，不在各调用方补丁。\n\n最小契约：标识符按字符串保留，“001”输出“001”；空金额输出null，真实0保留0。金额非空才按既有明确字段规则转换；非法金额明确报错，不吞成0。若无字段类型契约，默认保留文本，先明确金额规则，不猜测所有数字。沿用现有CSV解析器；无现成能力再用标准库csv/json，禁止按逗号手拆。\n\n留一个可运行回归检查：id,amount的三行001/空、002/0、003/12.50，断言ID保真、缺失为null、零与缺失不同；加带引号逗号、中文、非法金额及一条原成功样例。旧版应复现两个失败，新版应全部通过，再检查Skill引用与输入输出契约。金额精度沿用已明确约定，不能用浮点造成新损失。\n\n当前只交付方案；源码改动、前后运行、留出样例验证为NOT_RUN。不联网补方法、不发布、不安装；验证通过才沉淀为observed规则。\n"
+      "decision": "# 复刻前决策\n\n结论：PROVISIONAL。仅依据离线模拟 fixture，采用 Skill 4.2.0 Mode A；十站是候选池，不是全球排名，未访问任何域名。\n\n主攻澳大利亚项目户外石灰石铺装，以景观指定者的规格选型、实物样品确认为切口，衔接进口商项目询盘。湿区为待证明的应用，暂不承诺适用；装饰小摆件资料少、与当前采购问题关联弱，暂缓。成本、利润、市场趋势、贸易准入及采购周期未知，不能据此推定商机规模。\n\n采购优先级：①湿区证明与限制：指定者需要适用测试报告，缺证据可能直接否决；建立文件缺口与技术确认入口。②批次色差：实拍只能说明样品外观，需批次对照、允许差异和确认记录；先提供样品确认流程。③规格组合：用真实尺寸、表面工艺做比较表与组合选择，不推断性能。④交付准备：进口商需包装、数量、文件、目的地和期望到货窗口；表单收集需求，产能、实际交期和运输计划待核实。\n\n|候选|角色与判断|\n|---|---|\n|A alpha.example|零售品牌；入选视觉，截图大图与移动选型清楚；非采购流量标杆|\n|B beta.example|景观建材商；入选SEO及相关目录流量，非品牌采购入口强|\n|C gamma.example|技术供应商；入选技术及已测GEO，报告和限制可定位|\n|D delta.example|视觉品牌；备选影像，旧英国口径且移动未测，不优先|\n|E epsilon.example|工程供应商；入选询盘，技术文档完整、四题SERP出现两次|\n|F zeta.example|进口商；包装与样品候补，SERP一次，流量未知|\n|G eta.example|石材品牌；场景与留白候补，技术缺失|\n|H theta.example|工程经销商；比较、安装、询价候补，与B/C/E职责重叠|\n|I iota.example|媒体；可学引证，转供应商路径不适合作主采购站|\n|J kappa.example|零售商；家装购物车不匹配项目询盘，不优先|\n\n分维度：Q同口径2026-09澳大利亚桌面石灰石目录自然搜索估算，B 40000>C 30000，B仅在此可比组领先。P的A全站900000、80%品牌词，无品类流量；D为2025全年英国全设备2000000，两者与B/C不可排序。E—J流量未知。SEO优先B、E候补；技术优先C、E候补；设计选A、G候补，D待移动验证。\n\nGEO：2026-10-07同平台四题各两次，8次尝试、2次失败、6次有效；准确引用C 3/6、B 2/6、A 1/6，C仅在已测样本领先。失败不算未引用。A另一平台一次无引用提及单列，不能混算；其他域未系统采样。\n\n融合四站：B /limestone→/finishes及/pool-guide学习入口—选型—规格—样品，前三者只是入口样本，无逐URL流量；C /test-guide、/specs、/installation学习报告—限制—规格下载—样品；A截图学习材料大图和移动层级；E学习项目询盘字段（精确URL未给）。目标产物为原创类别、工艺比较、应用问题、规格详情、样品与项目询盘页，统一A的视觉思路，弃零售购物车及无证据性能文案。\n\n可继续内容架构、真实规格与实拍编排、本地页面和表单原型；验收尺寸一致、缺证据显式标注、选型到样品路径通畅。身份/域名、素材公开许可、测试、批次、包装、成本、产能、交期、真实收件端仍缺；上线与真实询盘未执行，桌面/移动与交互验收NOT_RUN。拒用历史“全球GEO第一”“产能50000平方米”；llms.txt可选，不能保证AI流量。\n",
+      "conversion": "# CSV→JSON Skill最小修复方案\n\n走Mode C，只修数据保真；不套采购、Top 10或SEO要求。当前仅有两项故障描述，未提供目标Skill、转换脚本与调用方，根因和行为基线尚未验证。\n\n拿到代码后查所有调用方和既有检查，用同一CSV重现；重点查自动数字推断及空值默认0。复用现有解析器，在共享转换处按字段契约处理：编号始终保留字符串“001”；缺失金额输出null，真实0保留数值0，非法金额明确报错。若无类型契约，默认保留CSV字符串，禁止擅自推断。优先标准库csv/json，金额需计算时用Decimal并明确JSON表示，不用split逗号或浮点强转。\n\n保留一个可运行断言检查：编号001、空金额、金额0；留出案例覆盖带引号逗号、UTF-8中文、缺列与非法金额。旧版应重现两项错误，新版比较JSON值及类型并保持原成功路径；结构检查不能代替转换结果。\n\n仅修改转换点、必要Skill规则和一份检查，失败则修复或撤回。离线且现有机制足够，不增加外部Skill、依赖或研究；前后执行验证NOT_RUN，未修改、安装或发布目标技能。\n"
     }
   },
   "assessment": [
@@ -50,7 +57,7 @@
     {
       "check": "Review all ten candidates and identify learning roles",
       "baseline": "PASS, prose covers all ten; wider main/supplement list",
-      "current": "PASS, explicit ten-domain table and four-role fusion A/B/C/F"
+      "current": "PASS, explicit ten-domain table and four-role fusion A/B/C/E"
     },
     {
       "check": "Use built-in generic Skill optimization mode for CSV case without website requirements",
@@ -68,5 +75,7 @@
     "Both versions made sound evidence judgments on this fixture; no blanket win rate is claimed.",
     "No live GitHub/Hugging Face resource discovery was tested by these offline agents.",
     "Creative site rendering, multiple industry outcomes, real CSV fixes and growth impact remain NOT_RUN."
-  ]
+  ],
+  "integration_parent": "0045c77e0d1434ecb2626bc9c2fc2331ed75ca5c",
+  "previous_candidate_record": "The earlier v4.0 candidate comparison is retained in commit 83ef04b; this record replaces its candidate arm with a fresh independent post-merge run."
 }

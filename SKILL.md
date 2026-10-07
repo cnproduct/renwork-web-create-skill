@@ -4,7 +4,7 @@ description: >
   先研究行业赛道与海外买家采购需求，从行业 Top 10 候选中筛选 SEO、GEO、流量、设计与技术标杆，蒸馏其机制后创造原创 B2B 独立站。
   用于全球标杆发现、复刻后原创重构、SEO/GEO 获客迁移；也用于优化指定的任意 Skill，按缺口从本机、GitHub、Hugging Face 发现专业方法，融合并验证。
 metadata:
-  version: "4.0.0"
+  version: "4.2.0"
   author: "cnproduct (RenWork AI Innovation Team)"
   repository: "https://github.com/cnproduct/renwork-web-create-skill"
 ---
@@ -15,10 +15,10 @@ metadata:
 
 ## 模式路由
 
-- **建站与网站优化**：执行下方流程，先读 [行业选型、买家洞察与 Top 10 标杆发现](references/benchmark-discovery.md)。已明确的局部改动不重做全行业研究。
-- **优化任意 Skill（含自身）**：读 [通用 Skill 优化与蒸馏](references/skill-optimization.md)，以指定目标、实际失败与结果为起点，研究→补缺→改动→验证→沉淀。此模式不套用建站、SEO 或贸易要求，不递归启动自我优化。
+- **Mode A：建站与网站优化**：执行下方流程，先读 [行业选型、买家洞察与 Top 10 标杆发现](references/benchmark-discovery.md)。已明确的局部改动不重做全行业研究。
+- **Mode C：优化任意 Skill（含自身）**：读 [通用 Skill 优化与蒸馏](references/skill-optimization.md)，以指定目标、实际失败与结果为起点，研究→补缺→改动→验证→沉淀。此模式不套用建站、SEO 或贸易要求，不递归启动自我优化。
 
-用户明确只要求忠实复刻、局部修复或只读分析时，以该范围为准，不追加改版。已明确的范围、授权和事实沿用，不重复提问。公开页面只能证明浏览器收到的 HTML、部署资源和可观察行为，不能声称取得未下发的服务端源码、数据库或后台权限。
+**Mode B：用户明确只要求忠实复刻**、局部修复或只读分析时，以该范围为准，不追加改版。已明确的范围、授权和事实沿用，不重复提问。公开页面只能证明浏览器收到的 HTML、部署资源和可观察行为，不能声称取得未下发的服务端源码、数据库或后台权限。
 
 ## 工作约定
 
@@ -31,7 +31,7 @@ metadata:
 
 ## 0. 行业选型、采购洞察与标杆选择（复刻前完成）
 
-按 [发现方法](references/benchmark-discovery.md) 建立项目 `BUYER_STRATEGY.md`，将战略选择与 Top 10 表集中在此，原始证据仍入 `evidence/`：
+按 [发现方法](references/benchmark-discovery.md) 建立项目 `BUYER_STRATEGY.md`，将战略选择与 Top 10 表集中在此，原始证据仍入 `evidence/`。可从 [买家战略模板](templates/BUYER_STRATEGY.md) 开始；任务/贸易深研见 [研究指南](references/buyer-and-trade-research.md)：
 
 1. **选赛道**：从企业真实产品与履约能力出发，比较细分品类、目标市场、趋势、贸易变化、准入与采购周期，写主攻机会、暂缓机会和理由。已指定赛道则验证其细分定位，不擅自换行业。
 2. **懂采购**：按行业识别进口商、品牌商、渠道、工程/技术采购等实际角色，分析采购触发、选型标准、痛点、拒绝原因、所需证明与下一步行动。
@@ -84,7 +84,7 @@ metadata:
 
 写 `ORIGINALITY.md` 的“观察机制 → 保留原因 → 原创变化 → 企业证据 → 页面/检查”表。至少在品牌叙事、买家/应用组织、页面构图、影像语言、选型内容或采购工具中作出有依据的独特设计；不能只有换色换名，也不靠任意变化破坏有效获客路径。
 
-从真实材料、工艺、应用与买家任务提出三个不同的视觉方向，分别说明构图、影像、字体、信息层级与关键动效；按任务清晰度、行业适配、证据、独特性和性能选定一套统一语言。未指定需确认时自行择优并记录理由。用精选动效解释产品与工艺，提供移动、键盘和 reduced-motion 体验；不把多个标杆的不同风格直接拼接。详细的对照学习、反事实检查、文化命名与图实匹配见 [原创迁移](references/traffic-and-originality.md)。
+从真实材料、工艺、应用与买家任务提出三个不同的视觉方向，分别说明构图、影像、字体、信息层级与关键动效；按任务清晰度、行业适配、证据、独特性和性能选定一套统一语言。未指定需确认时自行择优并记录理由。用精选动效解释产品与工艺，提供移动、键盘和 reduced-motion 体验；不把多个标杆的不同风格直接拼接。详细的对照学习、反事实检查、文化命名与图实匹配见 [原创迁移](references/traffic-and-originality.md)；需要创意工作单时读 [视觉导演指南](references/mechanism-distillation-and-creative-direction.md)。
 
 采用目标企业 Logo、实际产品与工厂照片、真实规格与允许公开的案例；生成场景图仅作注明的示意，不能冒充实拍/客户项目。优先以应用场景和买家任务组织首页及类别，详情页呈现选型、差异、规格、限制、技术文件和下一步采购动作。视觉规则可参考 [设计 tokens](references/b2b-design-tokens.md)，该文件是示例，不是统一绿色主题。
 
@@ -111,6 +111,8 @@ metadata:
 `design-qa.md` 记录 `discovery_result`（READY/PROVISIONAL/BLOCKED）、`learning_scope`（关键页与机制/完整复刻）、`baseline_result`、`original_result`（passed/partial/blocked），每项含范围、测试条件、证据路径、时间与版本。完成 build 后实际验证菜单、键盘/焦点、筛选/空状态、链接、表单校验/失败/重试和移动溢出，不能用静态检查代替。
 
 依次区分：`APPLIED_LOCAL` → `VERIFIED_LOCAL` → `DEPLOYED` → `VERIFIED_LIVE`；另列收录、AI 引用、真实收件和合格询盘。未测是 `NOT_RUN`，缺权限是 `BLOCKED`；这些业务结果不会因部署或内部审计分数自动通过。
+
+需要生产询盘后端时读 [RFQ 接线与验收](references/rfq-backend.md)；采用 Turnstile 时读 [服务端验证与故障处理](references/turnstile.md)。按项目真实接收端与授权实施，本仓库预览/边缘模板不等于已部署邮件服务。
 
 ## 配套工具的真实边界
 

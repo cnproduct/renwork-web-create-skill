@@ -1,4 +1,4 @@
-# RenWork Web Create Skill · 4.0.0
+# RenWork Web Create Skill · 4.2.0
 
 **先选赛道与买家，再从行业 Top 10 中选对标。** 比较 SEO、GEO、可比流量、设计与技术采购能力，深读各自领先者，复现关键页和有效机制，再创造目标企业的独特网站。最终交付可运行代码、预览和证据。另有内置通用模式：从本机、GitHub、Hugging Face 发现专业方法，优化指定的任意 Skill。
 
@@ -84,6 +84,11 @@ SEO 配置与真实边界见 [SEO/schema 契约](references/b2b-seo-schema-spec.
 
 ## 参考资料与模板
 
+- [买家与贸易深研](references/buyer-and-trade-research.md) / [买家战略模板](templates/BUYER_STRATEGY.md)
+- [视觉导演工作单](references/mechanism-distillation-and-creative-direction.md)
+- [优化报告模板](templates/SKILL_OPTIMIZATION.md)
+- [RFQ 后端说明](references/rfq-backend.md) / [Turnstile 验证](references/turnstile.md)
+- [石灰石历史案例与通用提示链](references/benchmark-discovery-methodology.md)
 - [行业选型、采购洞察与 Top 10 标杆发现](references/benchmark-discovery.md)
 - [通用 Skill 优化与蒸馏](references/skill-optimization.md)
 - [行为评测场景](references/evaluation-scenarios.md)

@@ -1,5 +1,7 @@
 # B2B Design Tokens & Industrial UI Playbook
 
+> Example only: derive the target palette, fonts, surfaces and layout from observed evidence and its own brand; do not force this olive theme.
+
 > A systematic guide to engineering authoritative, high-conversion visual design systems for B2B export manufacturers.
 
 ---

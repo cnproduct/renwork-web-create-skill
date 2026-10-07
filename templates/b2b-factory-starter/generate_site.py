@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Xinghui Plastic Life · 1:1 High-Fidelity Website Generator
+Historical Xinghui-specific demonstration generator (not a verified generic starter)
 Compiles index.html, products.html, lunch-boxes.html, custom-solutions.html,
 about.html, contact.html, sitemap.xml, robots.txt, llms.txt, llms-full.txt
 with complete B2B SEO & GEO citability optimization.
@@ -18,6 +18,7 @@ with open(DATA_FILE, 'r', encoding='utf-8') as f:
 # Common Header Component
 def get_header(active_nav='home'):
     return f"""
+    <aside role="note" style="padding:12px;text-align:center;background:#fff3cd;color:#332701">Historical demonstration only. Company claims, products and assets require independent verification. No inquiry is sent.</aside>
     <!-- Top Utility Bar -->
     <div class="top-utility-bar">
       <div class="page-container top-utility-content">
@@ -59,15 +60,7 @@ def get_header(active_nav='home'):
             <button class="lang-btn" aria-label="Select Language">
               <span>EN (Global)</span> ▾
             </button>
-            <div class="lang-menu">
-              <a href="#" data-lang="en">English (US/Global)</a>
-              <a href="#" data-lang="ja">日本語 (Japan)</a>
-              <a href="#" data-lang="ru">Русский (Russia)</a>
-              <a href="#" data-lang="de">Deutsch (Germany)</a>
-              <a href="#" data-lang="fr">Français (France)</a>
-              <a href="#" data-lang="es">Español (Spain)</a>
-              <a href="#" data-lang="ko">한국어 (Korea)</a>
-            </div>
+            <div class="lang-menu">English demonstration only</div>
           </div>
           <a href="contact.html" class="btn btn-primary" style="padding: 0.55rem 1.25rem;">Get a Quote</a>
           <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
@@ -264,13 +257,12 @@ def generate_index():
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Food Storage Containers Manufacturer in China | Xinghui Plastic Life</title>
   <meta name="description" content="Xinghui is a food storage containers manufacturer in China, supplying lunch boxes and household plasticware with OEM and ODM support for B2B buyers.">
   <meta name="keywords" content="food storage containers manufacturer, wholesale lunch boxes china, plasticware factory jieyang, oem odm meal prep containers, bulk bento boxes">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.xhplasticlife.com/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -894,12 +886,12 @@ def generate_products():
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wholesale Food Storage Containers | 63 SKUs Catalogue | Xinghui</title>
   <meta name="description" content="Browse Xinghui wholesale food storage containers, lunch boxes and household plasticware for distributors, brands and importers. 63 SKUs available for OEM/ODM.">
   <meta name="keywords" content="wholesale food storage containers, bulk lunch boxes, kitchen organizers supplier, meal prep container factory">
-  <link rel="canonical" href="https://www.xhplasticlife.com/products.html">
     <!-- Default Site Protection (from b2b-global-brand-site-master) -->
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
@@ -990,11 +982,11 @@ def generate_lunch_boxes():
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wholesale Lunch Box Manufacturer | Bento Box Supplier China | Xinghui</title>
   <meta name="description" content="Source wholesale plastic and stainless steel lunch boxes from Xinghui. Compare models, multi-compartment bento containers, and discuss OEM/ODM private label.">
-  <link rel="canonical" href="https://www.xhplasticlife.com/lunch-boxes.html">
     <!-- Default Site Protection (from b2b-global-brand-site-master) -->
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
@@ -1071,11 +1063,11 @@ def generate_custom_solutions():
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Custom Food Storage Containers | OEM & ODM Moulding | Xinghui</title>
   <meta name="description" content="Develop custom food storage containers with Xinghui: ready-to-make branding, in-house tooling, 3D prototypes, and mass injection moulding in Jieyang, China.">
-  <link rel="canonical" href="https://www.xhplasticlife.com/custom-solutions.html">
     <!-- Default Site Protection (from b2b-global-brand-site-master) -->
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
@@ -1158,11 +1150,11 @@ def generate_about():
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Xinghui | Food Storage Container Manufacturer in China</title>
   <meta name="description" content="Learn about Xinghui Plastic Life, a food storage container manufacturer in Jieyang, Guangdong, China with 45 injection machines and certified ISO/FDA/LFGB facilities.">
-  <link rel="canonical" href="https://www.xhplasticlife.com/about.html">
     <!-- Default Site Protection (from b2b-global-brand-site-master) -->
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
@@ -1231,11 +1223,11 @@ def generate_contact():
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Xinghui | Request Quotation & Sourcing Discussion</title>
   <meta name="description" content="Contact Xinghui about wholesale food storage containers, custom product development or e-commerce sourcing. Direct factory inquiry desk in Jieyang, China.">
-  <link rel="canonical" href="https://www.xhplasticlife.com/contact.html">
     <!-- Default Site Protection (from b2b-global-brand-site-master) -->
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
@@ -1318,147 +1310,22 @@ def generate_contact():
         f.write(html_content)
     print("contact.html successfully created.")
 
-# 7. GENERATE ROBOTS.TXT (2026 AI Crawler Friendly Specification)
+# Historical demo outputs deliberately contain no indexable or factual knowledge feed.
 def generate_robots():
-    print("Generating robots.txt...")
-    content = """# 2026 AI-Friendly Robots Configuration for Xinghui Plastic Life
-# Permits Google, Bing, and AI Knowledge Citation Bots (Princeton KDD 2024 GEO standard)
-
-User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /api/
-
-# AI Search & Citation Bots (Explicitly Allowed for Generative Engine Optimization)
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-# XML Sitemaps
-Sitemap: https://www.xhplasticlife.com/sitemap.xml
-"""
     with open(os.path.join(BASE_DIR, 'robots.txt'), 'w', encoding='utf-8') as f:
-        f.write(content)
-    print("robots.txt successfully created.")
+        f.write('User-agent: *\nDisallow: /\n')
 
-# 8. GENERATE SITEMAP.XML (Multilingual Hreflang Matrix)
+
 def generate_sitemap():
-    print("Generating sitemap.xml...")
-    languages = ['en', 'ja', 'ru', 'de', 'fr', 'es', 'ko']
-    pages = [
-        "",
-        "products.html",
-        "lunch-boxes.html",
-        "custom-solutions.html",
-        "about.html",
-        "contact.html"
-    ]
-
-    urls_xml = ""
-    for p in pages:
-        loc = f"https://www.xhplasticlife.com/{p}" if p else "https://www.xhplasticlife.com"
-        alternates = ""
-        for lang in languages:
-            href = f"https://www.xhplasticlife.com/{lang}/{p}" if lang != 'en' else loc
-            alternates += f'    <xhtml:link rel="alternate" hreflang="{lang}" href="{href}"/>\n'
-        
-        urls_xml += f"""  <url>
-    <loc>{loc}</loc>
-{alternates}    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>\n"""
-
-    # Add all 63 SKUs
-    for p in products:
-        sku_loc = f"https://www.xhplasticlife.com/products.html?sku={html.escape(p['name'])}"
-        urls_xml += f"""  <url>
-    <loc>{sku_loc}</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>\n"""
-
-    sitemap_content = f"""<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-{urls_xml}</urlset>"""
     with open(os.path.join(BASE_DIR, 'sitemap.xml'), 'w', encoding='utf-8') as f:
-        f.write(sitemap_content)
-    print("sitemap.xml successfully created.")
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"/>\n')
 
-# 9. GENERATE LLMS.TXT & LLMS-FULL.TXT (GEO Knowledge Endpoints)
+
 def generate_llms():
-    print("Generating llms.txt & llms-full.txt...")
-    llms_txt = """# Xinghui Plastic Life · Food Storage Containers Manufacturer
+    for name in ('llms.txt', 'llms-full.txt'):
+        with open(os.path.join(BASE_DIR, name), 'w', encoding='utf-8') as f:
+            f.write('# Historical demonstration\n\nNot an official company fact source. Verify and replace all company claims before creating a target site.\n')
 
-> China-based premier OEM/ODM manufacturer of food storage containers, bento lunch boxes, and household daily plasticware for global distributors, retail supermarket chains, and e-commerce brands.
-
-## Core Truth & Identity
-- **Manufacturer Entity**: Jieyang Xinghui Plasticware Co., Ltd. (Xinghui Plastic Life)
-- **Production Facility**: Rongcheng Industrial Zone, Jieyang City, Guangdong Province, China
-- **Factory Footprint**: 12,000 square meters
-- **Machinery Capacity**: 45 automated injection moulding production lines
-- **Monthly Output**: 1,500,000 units
-- **Established**: 2008
-- **Export Destinations**: 60+ countries across North America, EU, Japan, Australia, Southeast Asia
-- **Certifications & Compliance**: ISO 9001:2015, BSCI Audited, FDA 21 CFR 177.1520 Compliant, LFGB German Food Grade Certified, 100% BPA-Free, Sedex SMETA, REACH & RoHS.
-
-## Product Families (6 Families, 63 Listed SKUs)
-1. **Lunch Boxes & Bento Containers** (14 SKUs): Multi-compartment leakproof boxes, microwave safe with silicone steam valves, PP + 304 stainless steel hybrid containers, ramen bowls.
-2. **Food Storage Containers** (27 SKUs): Airtight pantry storage canisters, modular fridge organizer bins, snap-lock grain containers, glass lunch boxes with PP clip lids.
-3. **Kitchen Storage Containers** (4 SKUs): Rotating spice carousels, leakproof oil dispensers with measurement scales, cereal dispensaries.
-4. **Drinkware & Tumblers** (2 SKUs): BPA-free sports water bottles, insulated travel coffee tumblers.
-5. **Home Storage Containers** (12 SKUs): Stackable clothing boxes, desktop drawer organizers, bathroom organizers.
-6. **Portable Organizers** (4 SKUs): Compact travel pill cases with silicone gaskets, daily hardware and craft boxes.
-
-## Commercial Terms & Lead Times
-- **Sample Lead Time**: Physical samples dispatched within 3 business days.
-- **Stock Mould MOQ**: 1,000 pieces per SKU (custom colors available from 3,000 pcs).
-- **Custom Tooling Cycle**: 3D CAD design (48h) -> SLA 3D print sample (72h) -> Mould fabrication (25-30 days) -> Mass injection run (15 days).
-- **FOB Ports**: Shantou, Shenzhen (Yantian/Shekou), Guangzhou (Nansha).
-
-## Official Navigation Links
-- [Catalogue & 63 SKUs](https://www.xhplasticlife.com/products.html): Complete searchable inventory.
-- [Wholesale Lunch Boxes](https://www.xhplasticlife.com/lunch-boxes.html): Bento box manufacturer details.
-- [OEM Custom Manufacturing](https://www.xhplasticlife.com/custom-solutions.html): Custom tooling workflow.
-- [About Xinghui](https://www.xhplasticlife.com/about.html): Factory profile and ISO/BSCI documentation.
-- [Contact & RFQ](https://www.xhplasticlife.com/contact.html): Direct export inquiry desk.
-"""
-
-    llms_full_txt = llms_txt + """
-## Detailed 63-SKU Catalog Inventory
-"""
-    for idx, p in enumerate(products, 1):
-        llms_full_txt += f"""
-### SKU #{idx}: {p['name']}
-- **Category**: {p.get('category', 'food-storage-containers')}
-- **Materials**: Food Grade PP / Silicone / BPA-Free Polymer
-- **MOQ**: 1,000 units
-- **Customization**: Custom color, logo printing, retail sleeve, barcode labeling
-- **Image Reference**: {p['img']}
-"""
-
-    with open(os.path.join(BASE_DIR, 'llms.txt'), 'w', encoding='utf-8') as f:
-        f.write(llms_txt)
-    with open(os.path.join(BASE_DIR, 'llms-full.txt'), 'w', encoding='utf-8') as f:
-        f.write(llms_full_txt)
-    print("llms.txt and llms-full.txt successfully created.")
 
 if __name__ == '__main__':
     generate_index()

@@ -23,21 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Multilingual Switcher
-  const langSelector = document.getElementById('langSelector');
-  if (langSelector) {
-    const langItems = langSelector.querySelectorAll('.lang-menu a');
-    langItems.forEach(item => {
-      item.addEventListener('click', (e) => {
-        const lang = item.getAttribute('data-lang');
-        const langLabel = item.textContent.trim();
-        const currentBtn = langSelector.querySelector('.lang-btn span');
-        if (currentBtn) currentBtn.textContent = langLabel;
-        console.log(`[GEO Routing] Switched target locale to: ${lang}`);
-      });
-    });
-  }
-
   // 3. Live 63-SKU Catalogue Engine
   const searchInput = document.getElementById('catalogueSearch');
   const categoryButtons = document.querySelectorAll('.cat-btn');
@@ -103,39 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. B2B RFQ Form Handler
-  const rfqForms = document.querySelectorAll('.rfq-form-submit');
-  rfqForms.forEach(form => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn ? submitBtn.textContent : 'Submit';
-      
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Processing Quotation...';
-      }
-
-      // Collect data
-      const formData = new FormData(form);
-      const payload = Object.fromEntries(formData.entries());
-      console.log('[B2B RFQ Submitted]', payload);
-
-      setTimeout(() => {
-        if (submitBtn) {
-          submitBtn.textContent = '✓ Quote Request Sent';
-          submitBtn.style.backgroundColor = '#2d6a4f';
-        }
-        alert('Thank you for your enquiry! Our factory export sales manager will reach out with a detailed quotation within 12 hours.');
-        form.reset();
-        setTimeout(() => {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-            submitBtn.style.backgroundColor = '';
-          }
-        }, 4000);
-      }, 1000);
+  // Historical demo has no receiving service. Preserve input and report the actual state.
+  document.querySelectorAll('.rfq-form-submit').forEach(form => {
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      alert('Demonstration only: no inquiry was sent. Connect and verify a receiving service before release.');
     });
   });
 });

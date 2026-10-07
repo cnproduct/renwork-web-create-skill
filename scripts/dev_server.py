@@ -1,43 +1,41 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-RenWork Web Create Skill · Local Development & RFQ Server
-Serves static pages with accurate MIME types and handles test B2B RFQ submissions.
-"""
+"""Loopback-only static preview. RFQ always reports disconnected; nothing is sent."""
+import argparse
+from functools import partial
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
 
-import sys, os, http.server, socketserver, json
 
-class B2BRequestHandler(http.server.SimpleHTTPRequestHandler):
+class B2BRequestHandler(SimpleHTTPRequestHandler):
     def end_headers(self):
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
+        self.send_header('Cache-Control', 'no-store')
+        self.send_header('X-Robots-Tag', 'noindex, nofollow')
         super().end_headers()
 
     def do_POST(self):
-        if self.path == '/api/rfq':
-            length = int(self.headers.get('Content-Length', 0))
-            body = self.rfile.read(length).decode('utf-8')
-            print(f"[B2B RFQ Server] Received inquiry payload:\n{body}")
-            self.send_response(200)
-            self.send_header('Content-Type', 'application/json')
-            self.end_headers()
-            self.wfile.write(json.dumps({'status': 'success', 'message': 'RFQ recorded'}).encode('utf-8'))
-        else:
-            self.send_error(404, 'Endpoint not found')
+        self.close_connection = True
+        self.send_error(503 if self.path == '/api/rfq' else 404,
+                        'Preview only: inquiry service is not connected; nothing was sent')
 
-def run_server(port=8080, directory='xhplasticlife-clone'):
-    os.chdir(directory)
-    handler = B2BRequestHandler
-    with socketserver.TCPServer(("", port), handler) as httpd:
-        print(f"[Dev Server] Serving at http://localhost:{port}")
-        print(f"[Dev Server] Root directory: {os.path.abspath(directory)}")
-        print("Press Ctrl+C to terminate.")
+
+def run_server(port=8080, directory='.'):
+    root = Path(directory).resolve(strict=True)
+    if not root.is_dir():
+        raise ValueError('Preview root must be a directory')
+    with ThreadingHTTPServer(('127.0.0.1', port), partial(B2BRequestHandler, directory=str(root))) as server:
+        print(f'Preview: http://127.0.0.1:{server.server_port}; inquiry delivery NOT_CONNECTED')
         try:
-            httpd.serve_forever()
+            server.serve_forever()
         except KeyboardInterrupt:
-            print("\n[Dev Server] Shutting down.")
+            pass
+
 
 if __name__ == '__main__':
-    p = int(sys.argv[1]) if len(sys.argv) > 1 else 8080
-    d = sys.argv[2] if len(sys.argv) > 2 else 'xhplasticlife-clone'
-    run_server(p, d)
+    cli = argparse.ArgumentParser(description=__doc__)
+    cli.add_argument('port', nargs='?', type=int, default=8080)
+    cli.add_argument('directory', nargs='?', default='.')
+    args = cli.parse_args()
+    try:
+        run_server(args.port, args.directory)
+    except (ValueError, OSError) as exc:
+        cli.exit(1, f'Preview failed: {exc}\n')

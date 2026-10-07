@@ -174,6 +174,7 @@ def get_footer():
       </svg>
     </a>
     <script src="js/main.js"></script>
+    <script type="module" src="js/sourcing_estimator.js"></script>
     """
 
 # 1. GENERATE INDEX.HTML
@@ -286,6 +287,9 @@ def generate_index():
   <meta name="twitter:description" content="Xinghui is a food storage containers manufacturer in China, supplying lunch boxes and household plasticware with OEM and ODM support for B2B buyers.">
   <meta name="twitter:image" content="https://xinghui-plastic-life-cdn.assetlayer.site/Wholesale-Food-Storage-Containers-Manufacturer-Xinghui-banner.webp">
 
+    <!-- Default Site Protection (from b2b-global-brand-site-master) -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
   <link rel="stylesheet" href="css/style.css">
 
   <!-- JSON-LD Structured Data Schema Matrix -->
@@ -651,6 +655,81 @@ def generate_index():
     </div>
   </section>
 
+
+  <!-- Section 5.5: B2B Sourcing & Container Load Estimator (from b2b-global-brand-site-master) -->
+  <section id="containerEstimatorSection" class="surface-white section-padding" style="border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+    <div class="page-container">
+      <div style="text-align: center; max-width: 780px; margin: 0 auto 3rem;">
+        <span class="eyebrow">Logistics Optimization</span>
+        <h2 class="section-title">Container Load & Ocean Freight Sourcing Estimator</h2>
+        <p class="section-lead" style="margin: 0 auto;">
+          Calculate 20GP & 40HQ container packing volume, gross weight, and space utilization in real time. Optimize your FCL order size to minimize ocean freight cost per unit.
+        </p>
+      </div>
+
+      <div class="rfq-box" style="background: var(--color-light); margin-top: 0;">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 3rem;" class="lg:grid-cols-2">
+          <div>
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1.25rem;">1. Order Parameters</h3>
+            <div class="form-group" style="margin-bottom: 1.25rem;">
+              <label class="form-label" for="calcQuantity">Target Order Quantity (Pieces)</label>
+              <input type="number" id="calcQuantity" class="form-control" value="6000" min="500" step="100" style="font-size: 1.15rem; font-weight: 700;">
+              <span style="font-size: 0.8125rem; color: var(--color-fg-muted); margin-top: 0.25rem;">Standard model unit: 1.3L Bento / Food Container (48 pcs/carton)</span>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label class="form-label" for="calcContainerType">Ocean Container Specification</label>
+              <select id="calcContainerType" class="form-control" style="font-weight: 600;">
+                <option value="20GP" selected>20ft General Purpose Container (20GP · 28.5 m³ · 21.5t max)</option>
+                <option value="40HQ">40ft High Cube Container (40HQ · 68.0 m³ · 26.0t max)</option>
+              </select>
+            </div>
+
+            <div id="calcSuggestion" style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1rem; font-size: 0.9375rem; line-height: 1.5;">
+              Calculating freight efficiency...
+            </div>
+          </div>
+
+          <div>
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1.25rem;">2. Real-Time Freight Matrix</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+              <div style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1rem; text-align: center;">
+                <div style="font-size: 0.8125rem; color: var(--color-fg-muted); font-weight: 600;">Total Cartons</div>
+                <div id="calcTotalCartons" style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--color-accent-strong); margin-top: 0.25rem;">125</div>
+              </div>
+              <div style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1rem; text-align: center;">
+                <div style="font-size: 0.8125rem; color: var(--color-fg-muted); font-weight: 600;">Total Volume</div>
+                <div id="calcTotalCbm" style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--color-accent-strong); margin-top: 0.25rem;">21.5 m³</div>
+              </div>
+              <div style="background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1rem; text-align: center;">
+                <div style="font-size: 0.8125rem; color: var(--color-fg-muted); font-weight: 600;">Gross Weight</div>
+                <div id="calcTotalWeight" style="font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--color-accent-strong); margin-top: 0.25rem;">1,788 kg</div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 600;">
+                <span>Container Volume Utilization</span>
+                <span id="calcFillPercent" style="color: var(--color-accent-strong);">75%</span>
+              </div>
+              <div style="width: 100%; height: 16px; background: #e0e0e0; border-radius: 9999px; overflow: hidden;">
+                <div id="calcFillBar" style="height: 100%; width: 75%; background: linear-gradient(90deg, #8da687, #516b4b); border-radius: 9999px; transition: width 0.3s ease;"></div>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-top: 0.35rem; font-size: 0.75rem; color: var(--color-fg-muted);">
+                <span>0% (Empty)</span>
+                <span>85%~100% (Optimal FCL)</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.75rem;">
+              <a href="contact.html" class="btn btn-primary" style="width: 100%;">Request CIF / FOB Container Shipping Quote →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Section 6: Trusted Global Brands & Partners -->
   <section class="surface-white section-padding" style="border-bottom:1px solid var(--color-border);">
     <div class="page-container">
@@ -740,6 +819,8 @@ def generate_index():
           </div>
 
           <form class="rfq-form rfq-form-submit">
+            <!-- Honeypot Bot Trap (from b2b-global-brand-site-master) -->
+            <input type="text" name="_hp_check" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off">
             <div class="form-group">
               <label class="form-label" for="rfq-name">Your Full Name *</label>
               <input type="text" id="rfq-name" name="name" class="form-control" placeholder="e.g. John Smith" required>
@@ -819,6 +900,9 @@ def generate_products():
   <meta name="description" content="Browse Xinghui wholesale food storage containers, lunch boxes and household plasticware for distributors, brands and importers. 63 SKUs available for OEM/ODM.">
   <meta name="keywords" content="wholesale food storage containers, bulk lunch boxes, kitchen organizers supplier, meal prep container factory">
   <link rel="canonical" href="https://www.xhplasticlife.com/products.html">
+    <!-- Default Site Protection (from b2b-global-brand-site-master) -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
   <link rel="stylesheet" href="css/style.css">
   <script type="application/ld+json">
   {{
@@ -911,6 +995,9 @@ def generate_lunch_boxes():
   <title>Wholesale Lunch Box Manufacturer | Bento Box Supplier China | Xinghui</title>
   <meta name="description" content="Source wholesale plastic and stainless steel lunch boxes from Xinghui. Compare models, multi-compartment bento containers, and discuss OEM/ODM private label.">
   <link rel="canonical" href="https://www.xhplasticlife.com/lunch-boxes.html">
+    <!-- Default Site Protection (from b2b-global-brand-site-master) -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
   <link rel="stylesheet" href="css/style.css">
   <script type="application/ld+json">
   {{
@@ -989,6 +1076,9 @@ def generate_custom_solutions():
   <title>Custom Food Storage Containers | OEM & ODM Moulding | Xinghui</title>
   <meta name="description" content="Develop custom food storage containers with Xinghui: ready-to-make branding, in-house tooling, 3D prototypes, and mass injection moulding in Jieyang, China.">
   <link rel="canonical" href="https://www.xhplasticlife.com/custom-solutions.html">
+    <!-- Default Site Protection (from b2b-global-brand-site-master) -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -1034,6 +1124,8 @@ def generate_custom_solutions():
       <h2 class="section-title">Initiate Your Custom Sourcing Brief</h2>
       <p style="color:var(--color-fg-muted); margin-bottom:2rem;">Share your product sketch or CAD file with our engineering team.</p>
       <form class="rfq-form rfq-form-submit">
+            <!-- Honeypot Bot Trap (from b2b-global-brand-site-master) -->
+            <input type="text" name="_hp_check" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off">
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;" class="sm:grid-cols-2">
           <div class="form-group">
             <label class="form-label">Contact Name *</label>
@@ -1071,6 +1163,9 @@ def generate_about():
   <title>About Xinghui | Food Storage Container Manufacturer in China</title>
   <meta name="description" content="Learn about Xinghui Plastic Life, a food storage container manufacturer in Jieyang, Guangdong, China with 45 injection machines and certified ISO/FDA/LFGB facilities.">
   <link rel="canonical" href="https://www.xhplasticlife.com/about.html">
+    <!-- Default Site Protection (from b2b-global-brand-site-master) -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -1141,6 +1236,9 @@ def generate_contact():
   <title>Contact Xinghui | Request Quotation & Sourcing Discussion</title>
   <meta name="description" content="Contact Xinghui about wholesale food storage containers, custom product development or e-commerce sourcing. Direct factory inquiry desk in Jieyang, China.">
   <link rel="canonical" href="https://www.xhplasticlife.com/contact.html">
+    <!-- Default Site Protection (from b2b-global-brand-site-master) -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -1185,6 +1283,8 @@ def generate_contact():
       </div>
 
       <form class="rfq-form rfq-form-submit">
+            <!-- Honeypot Bot Trap (from b2b-global-brand-site-master) -->
+            <input type="text" name="_hp_check" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off">
         <h3 style="font-family:var(--font-display); font-size:1.35rem; margin-bottom:1rem;">Send An Enquiry</h3>
         <div class="form-group">
           <label class="form-label">Full Name *</label>

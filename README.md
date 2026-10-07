@@ -1,24 +1,26 @@
 # RenWork Web Create Skill 🌐
 
-[![Version](https://img.shields.io/badge/version-2.0.0-516b4b.svg)](https://github.com/cnproduct/renwork-web-create-skill)
+[![Version](https://img.shields.io/badge/version-2.2.0-516b4b.svg)](https://github.com/cnproduct/renwork-web-create-skill)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![B2B-SEO](https://img.shields.io/badge/SEO-5--in--1%20Schema-green.svg)](#)
 [![GEO-Citability](https://img.shields.io/badge/GEO-Princeton%20KDD%202024-blue.svg)](#)
+[![Site-Protection](https://img.shields.io/badge/Security-Edge%20Anti--Scrape-critical.svg)](#)
 
-> **High-Fidelity 1:1 Website Reverse Engineering & B2B SEO/GEO Citability Engine**  
-> 企业级出海独立站 1:1 深度复刻与生成式 AI 搜索引擎 (GEO) 流量引力场构建技能。
+> **High-Fidelity 1:1 Website Reverse Engineering, B2B SEO/GEO Citability & Global Brand Site Master**  
+> 企业级出海独立站 1:1 深度复刻、生成式 AI 搜索引擎 (GEO) 流量引力场构建与国际出海品牌总控大师技能。
 
 ---
 
 ## 📖 Introduction (项目简介)
 
-`renwork-web-create-skill` 沉淀自中国制造业头部出海独立站的实战复刻工程（如 `xhplasticlife.com` 等）。它将顶级海外竞品站的视觉美学、产品目录架构与全网获客灵魂一比一完整还原，不仅复刻其“形”（1:1 源码与像素级视觉系统），更复刻其“神”——**Google 商业意图词 SEO 与 AI 搜索引擎（ChatGPT Search / Perplexity / Claude / Gemini）的 GEO 流量引力场**。
+`renwork-web-create-skill` 沉淀自中国制造业头部出海独立站的实战复刻工程（如 `xhplasticlife.com` 等）。它将顶级海外竞品站的视觉美学、产品目录架构与全网获客灵魂一比一完整还原，不仅复刻其“形”（1:1 源码与像素级视觉系统），更复刻其“神”——**Google 商业意图词 SEO 与 AI 搜索引擎（ChatGPT Search / Perplexity / Claude / Gemini）的 GEO 流量引力场**，并深度融合了 **`b2b-global-brand-site-master`** 的默认站点防护体系与 20GP/40HQ 国际集装箱装柜测算引擎。
 
 ---
 
 ## 🏛️ Heritage & Core Principles (理论渊源与核心军规)
 
 本技能集大成融合了以下顶尖开源与本地工程体系：
+- **`cnproduct/b2b-global-brand-site-master`**: 21 行业精选配置库（含餐厨便当盒与工业容器专属参数）、默认站点安全防护（CSP 防镜像嵌套、RFQ 蜜罐反垃圾）、以及国际海运 20GP/40HQ 集装箱装柜测算引擎。
 - **`claude-skill-web-clone` & `open-design/web-clone`**: 真源码证据第一原则，拒绝 AI 臆测代码，覆盖静态/动态/动效三大技术决策分支。
 - **`website-to-design-md`**: 深度抽取真实网站的调色板、Typography、间距网格与 Surface 分层，沉淀出版级 `DESIGN.md`。
 - **`PixelClone-Skill`**: 像素级复刻与绝对业务契约，确保真实输入、真筛选与无障碍交互 100% 落地。
@@ -64,6 +66,9 @@ python3 scripts/dev_server.py 8080 ./my-clone-site/
 renwork-web-create-skill/
 ├── SKILL.md                          # 核心技能指令与端到端决策树
 ├── README.md                         # 技能使用手册与架构解析
+├── LICENSE                           # MIT 开源协议
+├── assets/
+│   └── industries.json               # 21 行业外贸参数与便当盒/餐厨容器标准配置
 ├── scripts/
 │   ├── site_forensics.py             # 目标站点深度探针与 DOM/CSS/SKU 提取
 │   ├── extract_design_tokens.py      # CSS 令牌解析与 DESIGN.md 自动生成
@@ -71,12 +76,15 @@ renwork-web-create-skill/
 │   ├── layout_typography_auditor.py  # 排版对齐、容器溢出与图片无障碍全域审计
 │   └── dev_server.py                 # 轻量本地静态预览与 RFQ API 收集服务
 ├── references/
+│   ├── site-protection.md            # 默认站点防护、防抓取与反镜像嵌套规范
+│   ├── procurement-components.md     # 行业采购组件、装柜测算器与 RFQ 协议
 │   ├── b2b-design-tokens.md          # 国际高转化 B2B 视觉语言规范
 │   ├── geo-citability-guide.md       # Princeton KDD 2024 GEO 白皮书
 │   ├── b2b-seo-schema-spec.md        # 5合1 结构化数据 Schema 黄金标准
 │   └── pixel-clone-contract.md       # 像素级复刻与绝对业务契约指南
 └── templates/
-    └── b2b-factory-starter/          # 开箱即用的工业出海官网组件套件
+    ├── edge-worker.mjs               # Cloudflare / Edge 边缘安全防护网关
+    └── b2b-factory-starter/          # 开箱即用的工业出海官网高保真套件
 ```
 
 ---

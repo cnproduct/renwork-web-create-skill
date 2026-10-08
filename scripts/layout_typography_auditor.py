@@ -1,72 +1,61 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-RenWork Web Create Skill · Layout & Typography Auditor
-Audits HTML files for:
-1. Missing alt tags on images
-2. Heading level continuity (H1 -> H2 -> H3)
-3. JSON-LD schema syntax & required fields
-4. Responsive overflow risks (hardcoded widths, unescaped text)
-5. Broken internal link paths
-"""
+"""Static HTML checks only: headings, alt presence, viewport and JSON-LD shape."""
+import argparse
+import json
+import sys
+from pathlib import Path
+from site_forensics import PageParser
 
-import sys, os, json
-from bs4 import BeautifulSoup
+
+def schema_shape(data):
+    if isinstance(data, list):
+        return bool(data) and all(schema_shape(item) for item in data)
+    if not isinstance(data, dict):
+        return False
+    if '@graph' in data:
+        graph = data['@graph']
+        return bool(data.get('@context')) and isinstance(graph, list) and bool(graph) and all(
+            isinstance(item, dict) and bool(item.get('@type')) for item in graph)
+    return bool(data.get('@type'))
+
 
 def audit_directory(dir_path):
-    print(f"[Auditor] Scanning HTML files in: {dir_path}")
-    html_files = [f for f in os.listdir(dir_path) if f.endswith('.html')]
-    
-    total_issues = 0
-    for fn in sorted(html_files):
-        fp = os.path.join(dir_path, fn)
-        with open(fp, 'r', encoding='utf-8') as f:
-            content = f.read()
-
-        soup = BeautifulSoup(content, 'html.parser')
+    root = Path(dir_path)
+    if not root.is_dir():
+        raise ValueError('Build directory does not exist')
+    pages = sorted(root.rglob('*.html'))
+    if not pages:
+        raise ValueError('No HTML files found; cannot pass an empty audit')
+    count = 0
+    for file in pages:
+        parser = PageParser()
+        parser.feed(file.read_text(encoding='utf-8'))
         issues = []
-
-        # 1. H1 presence
-        h1s = soup.find_all('h1')
-        if len(h1s) == 0:
-            issues.append("Missing H1 heading")
-        elif len(h1s) > 1:
-            issues.append(f"Multiple H1 headings found ({len(h1s)})")
-
-        # 2. Images missing alt
-        imgs_no_alt = [img.get('src', '') for img in soup.find_all('img') if not img.get('alt')]
-        if imgs_no_alt:
-            issues.append(f"{len(imgs_no_alt)} images missing 'alt' attribute")
-
-        # 3. JSON-LD validity
-        for s in soup.find_all('script', type='application/ld+json'):
+        if parser.h1_count != 1:
+            issues.append(f'Expected one primary H1; found {parser.h1_count}')
+        if 'viewport' not in parser.meta:
+            issues.append('Missing viewport')
+        if not parser.lang:
+            issues.append('Missing HTML language')
+        if any('alt' not in image for image in parser.images):
+            issues.append('Image missing alt attribute (empty alt is allowed for decoration)')
+        for raw in parser.schemas:
             try:
-                data = json.loads(s.string)
-                if not data.get('@context') or not data.get('@type'):
-                    issues.append("JSON-LD missing @context or @type")
-            except Exception as e:
-                issues.append(f"JSON-LD syntax error: {e}")
+                if not schema_shape(json.loads(raw)):
+                    issues.append('Unexpected JSON-LD type/graph shape')
+            except ValueError:
+                issues.append('Invalid JSON-LD JSON')
+        count += len(issues)
+        print(f"{'FAIL' if issues else 'PASS'} {file.relative_to(root)}: {', '.join(issues) or 'static checks'}")
+    print(f'{len(pages)} pages, {count} static issues. Visual overflow, browser interactions and live SEO/GEO NOT_RUN.')
+    return count == 0
 
-        # 4. Viewport tag
-        vp = soup.find('meta', attrs={'name': 'viewport'})
-        if not vp:
-            issues.append("Missing viewport meta tag for mobile responsiveness")
-
-        # Report
-        status = "✓ PASS" if not issues else "⚠ ISSUES FOUND"
-        print(f"[{status}] {fn}")
-        for iss in issues:
-            print(f"    - {iss}")
-            total_issues += 1
-
-    print("-" * 50)
-    if total_issues == 0:
-        print("[Auditor] All pages PASSED the audit cleanly! Ready for production deployment.")
-        return True
-    else:
-        print(f"[Auditor] Found {total_issues} issues to resolve.")
-        return False
 
 if __name__ == '__main__':
-    target_dir = sys.argv[1] if len(sys.argv) > 1 else 'xhplasticlife-clone/'
-    audit_directory(target_dir)
+    cli = argparse.ArgumentParser(description=__doc__)
+    cli.add_argument('directory')
+    args = cli.parse_args()
+    try:
+        sys.exit(0 if audit_directory(args.directory) else 1)
+    except (OSError, ValueError) as exc:
+        cli.exit(1, f'Audit failed: {exc}\n')

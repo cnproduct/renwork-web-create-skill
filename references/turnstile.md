@@ -1,28 +1,19 @@
-# Turnstile 修复详细手册
+# Turnstile 服务端验证与故障处理
 
-## 正确 API 路径
-- 基址 `https://api.cloudflare.com/client/v4`，`Authorization: Bearer $CF_TOKEN`（用户临时提供，env 传入）。
-- **正确路径**：`/accounts/{account_id}/challenges/widgets`。`/turnstile/widgets` 返回 "No route for that URI"。
-- 排查时先 `GET /user/tokens/verify` 区分 token 失效与路由错误。
+仅在项目选用 Turnstile 时读取。实际接收端与轮换操作遵循当前项目授权，本说明不要求创建或更换现有密钥。
 
-## 诊断错配
-`GET /accounts/{account_id}/challenges/widgets` 返回每个 widget 的 `name`/`sitekey`/`mode`/`domains`（**secret 永不返回**）。
-把站点 HTML 里写死的 sitekey 和 Worker 里配的 secret 所属 widget 对上——曾出现的真实故障：站点用 widget#1 的 sitekey，Worker 里装的是 widget#2 的 secret。
+## 验证
 
-## 修复（推荐：不重建站点）
-```bash
-# 1. 轮换"站点正在用的"那个 widget 的 secret（-d '{}' 必填，否则 EOF 错误）
-curl -X POST "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT/challenges/widgets/$SITEKEY/rotate_secret" \
-  -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" -d '{}'
+接收端向 `https://challenges.cloudflare.com/turnstile/v0/siteverify` 提交 `secret` 与客户端 `response`，检查成功状态和预期 hostname/action。令牌有效期5分钟且只能使用一次；过期/重复令牌需刷新。客户端控件成功不等于服务端验证通过。[官方验证说明](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/)
 
-# 2. 把返回的新 secret 装到 Worker
-curl -X PUT "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT/workers/scripts/$SCRIPT/secrets" \
-  -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" \
-  -d '{"name":"TURNSTILE_SECRET_KEY","text":"<新secret>","type":"secret_text"}'
-```
+前端传递 `cf-turnstile-response`，失败时保留表单并允许重新挑战；业务接收成功后再清空。服务不可用时按实际接口契约报错，不伪装提交成功。
 
-## 验收
-假 token 探针 `POST {site}/api/inquiry` 必须返回 `403 {"success":false,"error":"captcha_failed"}`；之后真人提交成功即证明配对正确。
+## 排查与修复
 
-## 纪律
-secret 只在 API 调用体内出现一次，绝不打印、落盘、进聊天记录或记忆；交接文档只记"某 widget 于某日轮换"，不记值。
+先核对实际站点的 sitekey、允许域名、部署环境与后端 secret 是否对应。Cloudflare widget 管理使用 `/accounts/{account_id}/challenges/widgets`；读取或轮换返回体可能含敏感字段，仅提取所需非敏感信息，不打印原始响应。[Widget API](https://developers.cloudflare.com/api/resources/turnstile/subresources/widgets/methods/get/)
+
+确认需要轮换且在授权范围内后，按当前官方接口执行，将返回密钥直接写入目标环境的秘密存储，保留回退与验证记录。不要在命令参数、普通文件、日志、聊天或公开提交中展示密钥。
+
+## 测试
+
+自动化成功/失败路径使用官方测试 sitekey/secret，测试配置只用于测试环境；生产挑战需要真实可用的验证路径，出现人工挑战时请用户完成。假令牌被拒仅证明拒绝路径，不能证明生产密钥配对和邮件接收都正确。[官方测试说明](https://developers.cloudflare.com/turnstile/troubleshooting/testing/)

@@ -37,7 +37,7 @@ def get_header(active_nav='home'):
     <!-- Main Sticky Header -->
     <header class="site-header">
       <div class="page-container site-header-inner">
-        <a href="index.html" class="brand-logo-wrap" aria-label="Xinghui Plastic Life Home">
+        <a href="./" class="brand-logo-wrap" aria-label="Xinghui Plastic Life Home">
           <div class="brand-logo-text">
             XINGHUI
             <span>Plastic Life</span>
@@ -46,12 +46,12 @@ def get_header(active_nav='home'):
 
         <!-- Desktop Navigation -->
         <nav class="main-navigation" aria-label="Primary Navigation">
-          <a href="index.html" class="nav-link {'active' if active_nav == 'home' else ''}">Home</a>
-          <a href="products.html" class="nav-link {'active' if active_nav == 'products' else ''}">Products</a>
-          <a href="lunch-boxes.html" class="nav-link {'active' if active_nav == 'lunch-boxes' else ''}">Lunch Boxes</a>
-          <a href="custom-solutions.html" class="nav-link {'active' if active_nav == 'custom' else ''}">Custom Manufacturing</a>
-          <a href="about.html" class="nav-link {'active' if active_nav == 'about' else ''}">Why Xinghui</a>
-          <a href="contact.html" class="nav-link {'active' if active_nav == 'contact' else ''}">Contact</a>
+          <a href="./" class="nav-link {'active' if active_nav == 'home' else ''}">Home</a>
+          <a href="products" class="nav-link {'active' if active_nav == 'products' else ''}">Products</a>
+          <a href="lunch-boxes" class="nav-link {'active' if active_nav == 'lunch-boxes' else ''}">Lunch Boxes</a>
+          <a href="custom-solutions" class="nav-link {'active' if active_nav == 'custom' else ''}">Custom Manufacturing</a>
+          <a href="about" class="nav-link {'active' if active_nav == 'about' else ''}">Why Xinghui</a>
+          <a href="contact" class="nav-link {'active' if active_nav == 'contact' else ''}">Contact</a>
         </nav>
 
         <!-- Header Actions: Multilingual & RFQ CTA -->
@@ -62,7 +62,7 @@ def get_header(active_nav='home'):
             </button>
             <div class="lang-menu">English demonstration only</div>
           </div>
-          <a href="contact.html" class="btn btn-primary" style="padding: 0.55rem 1.25rem;">Get a Quote</a>
+          <a href="contact" class="btn btn-primary" style="padding: 0.55rem 1.25rem;">Get a Quote</a>
           <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
             <span></span>
             <span></span>
@@ -79,12 +79,12 @@ def get_header(active_nav='home'):
         <button id="closeDrawer" style="background:none; border:none; font-size:1.5rem; cursor:pointer;" aria-label="Close menu">&times;</button>
       </div>
       <div class="mobile-nav-links">
-        <a href="index.html">Home</a>
-        <a href="products.html">All Products (63 SKUs)</a>
-        <a href="lunch-boxes.html">Wholesale Lunch Boxes</a>
-        <a href="custom-solutions.html">Custom Manufacturing</a>
-        <a href="about.html">About Factory</a>
-        <a href="contact.html">Get Quotation / RFQ</a>
+        <a href="./">Home</a>
+        <a href="products">All Products (63 SKUs)</a>
+        <a href="lunch-boxes">Wholesale Lunch Boxes</a>
+        <a href="custom-solutions">Custom Manufacturing</a>
+        <a href="about">About Factory</a>
+        <a href="contact">Get Quotation / RFQ</a>
       </div>
       <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
         <p style="font-size: 0.875rem; color: var(--color-fg-muted); margin-bottom: 0.5rem;">Direct Export Desk:</p>
@@ -116,22 +116,22 @@ def get_footer():
           <div class="footer-col">
             <h4>Product Families</h4>
             <ul>
-              <li><a href="lunch-boxes.html">Lunch Boxes (14 SKUs)</a></li>
-              <li><a href="products.html?cat=food-storage-containers">Food Storage Containers (27 SKUs)</a></li>
-              <li><a href="products.html?cat=kitchen-storage-containers">Kitchen Storage Containers (4 SKUs)</a></li>
-              <li><a href="products.html?cat=drinkware">Drinkware & Tumblers (2 SKUs)</a></li>
-              <li><a href="products.html?cat=home-storage-containers">Home Storage Containers (12 SKUs)</a></li>
-              <li><a href="products.html?cat=portable-organizers">Portable Organizers (4 SKUs)</a></li>
+              <li><a href="lunch-boxes">Lunch Boxes (14 SKUs)</a></li>
+              <li><a href="products?cat=food-storage-containers">Food Storage Containers (27 SKUs)</a></li>
+              <li><a href="products?cat=kitchen-storage-containers">Kitchen Storage Containers (4 SKUs)</a></li>
+              <li><a href="products?cat=drinkware">Drinkware & Tumblers (2 SKUs)</a></li>
+              <li><a href="products?cat=home-storage-containers">Home Storage Containers (12 SKUs)</a></li>
+              <li><a href="products?cat=portable-organizers">Portable Organizers (4 SKUs)</a></li>
             </ul>
           </div>
 
           <div class="footer-col">
             <h4>B2B Services</h4>
             <ul>
-              <li><a href="custom-solutions.html">OEM & ODM Customization</a></li>
-              <li><a href="custom-solutions.html#tooling">In-House Mould Tooling</a></li>
-              <li><a href="about.html#compliance">Food Contact Certification</a></li>
-              <li><a href="about.html">Jieyang Factory Overview</a></li>
+              <li><a href="custom-solutions">OEM & ODM Customization</a></li>
+              <li><a href="custom-solutions#tooling">In-House Mould Tooling</a></li>
+              <li><a href="about#compliance">Food Contact Certification</a></li>
+              <li><a href="about">Jieyang Factory Overview</a></li>
               <li><a href="llms.txt">AI Knowledge Endpoint (llms.txt)</a></li>
               <li><a href="sitemap.xml">XML Sitemap</a></li>
             </ul>
@@ -180,37 +180,37 @@ def generate_index():
             "name": "Lunch Boxes",
             "desc": "14 SKUs: Microwave-safe bento boxes, multi-compartment meal prep containers, soup bowls with spoon compartments.",
             "img": "https://xinghui-plastic-life-cdn.assetlayer.site/Custom-Lunch-Boxes-Wholesaler-1.webp",
-            "link": "lunch-boxes.html"
+            "link": "lunch-boxes"
         },
         {
             "name": "Food Storage Containers",
             "desc": "27 SKUs: Airtight freezer storage boxes, stackable modular pantry containers, glass with snap lids.",
             "img": "https://xinghui-plastic-life-cdn.assetlayer.site/Food-Storage-Containers-Wholesaler-2.webp",
-            "link": "products.html?cat=food-storage-containers"
+            "link": "products?cat=food-storage-containers"
         },
         {
             "name": "Kitchen Storage Containers",
             "desc": "4 SKUs: Spice carousels, oil dispensers, cereal grain storage jars with measurement scales.",
             "img": "https://xinghui-plastic-life-cdn.assetlayer.site/Kitchen-Storage-Containers-Wholesaler-3.webp",
-            "link": "products.html?cat=kitchen-storage-containers"
+            "link": "products?cat=kitchen-storage-containers"
         },
         {
             "name": "Drinkware & Tumblers",
             "desc": "2 SKUs: BPA-free sports water bottles, leakproof travel tumblers, coffee cups.",
             "img": "https://xinghui-plastic-life-cdn.assetlayer.site/Drinkware-Containers-Wholesaler-4.webp",
-            "link": "products.html?cat=drinkware"
+            "link": "products?cat=drinkware"
         },
         {
             "name": "Home Storage Containers",
             "desc": "12 SKUs: Multipurpose drawer dividers, stackable wardrobe boxes, desktop organization bins.",
             "img": "https://xinghui-plastic-life-cdn.assetlayer.site/Home-Storage-Containers-Wholesaler-2.webp",
-            "link": "products.html?cat=home-storage-containers"
+            "link": "products?cat=home-storage-containers"
         },
         {
             "name": "Portable Organizers",
             "desc": "4 SKUs: Compact pill cases, craft supply cases with removable dividers, travel toiletry kits.",
             "img": "https://xinghui-plastic-life-cdn.assetlayer.site/Portable-Organizers-Wholesaler-6.webp",
-            "link": "products.html?cat=portable-organizers"
+            "link": "products?cat=portable-organizers"
         }
     ]
 
@@ -248,7 +248,7 @@ def generate_index():
             </div>
             <div style="margin-top:1rem; padding-top:0.75rem; border-top:1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
               <span style="font-size:0.8125rem; color:var(--color-fg-muted);">MOQ: 1,000 pcs</span>
-              <a href="contact.html?sku={html.escape(p['name'])}" class="btn btn-outline" style="padding:0.35rem 0.75rem; font-size:0.8125rem;">Request Quote</a>
+              <a href="contact?sku={html.escape(p['name'])}" class="btn btn-outline" style="padding:0.35rem 0.75rem; font-size:0.8125rem;">Request Quote</a>
             </div>
           </div>
         </article>
@@ -353,12 +353,12 @@ def generate_index():
     "@context": "https://schema.org",
     "@type": "ItemList",
     "itemListElement": [
-      {{"@type": "ListItem", "position": 1, "url": "https://www.xhplasticlife.com/lunch-boxes.html", "name": "Lunch Boxes"}},
-      {{"@type": "ListItem", "position": 2, "url": "https://www.xhplasticlife.com/products.html?cat=food-storage-containers", "name": "Food Storage Containers"}},
-      {{"@type": "ListItem", "position": 3, "url": "https://www.xhplasticlife.com/products.html?cat=kitchen-storage-containers", "name": "Kitchen Storage Containers"}},
-      {{"@type": "ListItem", "position": 4, "url": "https://www.xhplasticlife.com/products.html?cat=drinkware", "name": "Drinkware"}},
-      {{"@type": "ListItem", "position": 5, "url": "https://www.xhplasticlife.com/products.html?cat=home-storage-containers", "name": "Home Storage Containers"}},
-      {{"@type": "ListItem", "position": 6, "url": "https://www.xhplasticlife.com/products.html?cat=portable-organizers", "name": "Portable Organizers"}}
+      {{"@type": "ListItem", "position": 1, "url": "https://www.xhplasticlife.com/lunch-boxes", "name": "Lunch Boxes"}},
+      {{"@type": "ListItem", "position": 2, "url": "https://www.xhplasticlife.com/products?cat=food-storage-containers", "name": "Food Storage Containers"}},
+      {{"@type": "ListItem", "position": 3, "url": "https://www.xhplasticlife.com/products?cat=kitchen-storage-containers", "name": "Kitchen Storage Containers"}},
+      {{"@type": "ListItem", "position": 4, "url": "https://www.xhplasticlife.com/products?cat=drinkware", "name": "Drinkware"}},
+      {{"@type": "ListItem", "position": 5, "url": "https://www.xhplasticlife.com/products?cat=home-storage-containers", "name": "Home Storage Containers"}},
+      {{"@type": "ListItem", "position": 6, "url": "https://www.xhplasticlife.com/products?cat=portable-organizers", "name": "Portable Organizers"}}
     ]
   }}
   </script>
@@ -410,7 +410,7 @@ def generate_index():
           Explore 63 listed SKUs across six food storage, lunch box and household-plasticware families. Request current material, intended-use and destination-market documentation for the model you select.
         </p>
         <div class="hero-cta-group">
-          <a href="contact.html" class="btn btn-primary">Talk to Our Experts</a>
+          <a href="contact" class="btn btn-primary">Talk to Our Experts</a>
           <a href="#catalogue" class="btn btn-secondary">Explore All 63 SKUs</a>
         </div>
         <div class="hero-badges-wrap">
@@ -622,7 +622,7 @@ def generate_index():
             <li>✓ <strong>Raw Material Quality Control:</strong> Virgin food-grade polymer with full batch test certificates.</li>
             <li>✓ <strong>Automated Production:</strong> Robotic arm pickers ensuring zero oil contamination.</li>
           </ul>
-          <a href="about.html" class="btn btn-primary">Learn More About Xinghui Factory</a>
+          <a href="about" class="btn btn-primary">Learn More About Xinghui Factory</a>
         </div>
 
         <div class="stats-banner" style="margin-top:0;">
@@ -714,7 +714,7 @@ def generate_index():
             </div>
 
             <div style="margin-top: 1.75rem;">
-              <a href="contact.html" class="btn btn-primary" style="width: 100%;">Request CIF / FOB Container Shipping Quote →</a>
+              <a href="contact" class="btn btn-primary" style="width: 100%;">Request CIF / FOB Container Shipping Quote →</a>
             </div>
           </div>
         </div>
@@ -877,7 +877,7 @@ def generate_products():
             </div>
             <div style="margin-top:1rem; padding-top:0.75rem; border-top:1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
               <span style="font-size:0.8125rem; color:var(--color-fg-muted);">MOQ: 1,000 pcs</span>
-              <a href="contact.html?sku={html.escape(p['name'])}" class="btn btn-outline" style="padding:0.35rem 0.75rem; font-size:0.8125rem;">RFQ Details</a>
+              <a href="contact?sku={html.escape(p['name'])}" class="btn btn-outline" style="padding:0.35rem 0.75rem; font-size:0.8125rem;">RFQ Details</a>
             </div>
           </div>
         </article>
@@ -902,7 +902,7 @@ def generate_products():
     "@type": "CollectionPage",
     "name": "Wholesale Food Storage Containers Catalogue",
     "description": "Complete 63 SKUs catalogue of food storage containers and bento boxes.",
-    "url": "https://www.xhplasticlife.com/products.html"
+    "url": "https://www.xhplasticlife.com/products"
   }}
   </script>
 </head>
@@ -944,7 +944,7 @@ def generate_products():
       <main class="catalogue-results">
         <div class="catalogue-results-meta">
           <p class="catalogue-results-count">Showing <strong id="resultsCount">63</strong> products</p>
-          <a href="contact.html" class="btn btn-primary" style="padding:0.4rem 1rem; font-size:0.875rem;">Request Full PDF Catalogue</a>
+          <a href="contact" class="btn btn-primary" style="padding:0.4rem 1rem; font-size:0.875rem;">Request Full PDF Catalogue</a>
         </div>
         <div class="catalogue-product-grid" id="productGrid">
           {product_cards_html}
@@ -974,7 +974,7 @@ def generate_lunch_boxes():
           <div class="catalogue-card-body">
             <h4 class="catalogue-card-title">{html.escape(p['name'])}</h4>
             <div style="font-size:0.875rem; color:var(--color-fg-muted); margin:0.5rem 0;">Food Contact: PP + Silicone Seal | Microwave Safe</div>
-            <a href="contact.html?sku={html.escape(p['name'])}" class="btn btn-outline" style="width:100%; margin-top:auto; font-size:0.8125rem;">Request Quotation</a>
+            <a href="contact?sku={html.escape(p['name'])}" class="btn btn-outline" style="width:100%; margin-top:auto; font-size:0.8125rem;">Request Quotation</a>
           </div>
         </article>
         """
@@ -1317,14 +1317,63 @@ def generate_robots():
 
 
 def generate_sitemap():
+    pages = ["", "products", "lunch-boxes", "custom-solutions", "about", "contact"]
+    today = "2026-10-09"
+    urls = []
+    for p in pages:
+        loc = f"https://www.xhplasticlife.com/{p}" if p else "https://www.xhplasticlife.com/"
+        urls.append(f"  <url>\n    <loc>{loc}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>{'1.0' if not p else '0.8'}</priority>\n  </url>")
+    xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(urls) + '\n</urlset>\n'
     with open(os.path.join(BASE_DIR, 'sitemap.xml'), 'w', encoding='utf-8') as f:
-        f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"/>\n')
+        f.write(xml_content)
 
 
 def generate_llms():
     for name in ('llms.txt', 'llms-full.txt'):
         with open(os.path.join(BASE_DIR, name), 'w', encoding='utf-8') as f:
             f.write('# Historical demonstration\n\nNot an official company fact source. Verify and replace all company claims before creating a target site.\n')
+
+
+def generate_server_configs():
+    # Vercel Clean URLs configuration
+    vercel_cfg = {
+        "version": 2,
+        "cleanUrls": True,
+        "trailingSlash": False
+    }
+    with open(os.path.join(BASE_DIR, 'vercel.json'), 'w', encoding='utf-8') as f:
+        json.dump(vercel_cfg, f, indent=2)
+
+    # Nginx Clean URLs configuration
+    nginx_conf = """server {
+    listen 80;
+    server_name xhplasticlife.com www.xhplasticlife.com;
+    root /var/www/xhplasticlife;
+    index index.html;
+
+    location / {
+        try_files $uri $uri.html $uri/ =404;
+    }
+
+    if ($request_uri ~ ^/(.*)\.html(\\?.*)?$) {
+        return 301 /$1$2;
+    }
+}
+"""
+    with open(os.path.join(BASE_DIR, 'nginx.conf'), 'w', encoding='utf-8') as f:
+        f.write(nginx_conf)
+
+    # Apache .htaccess Clean URLs configuration
+    htaccess = """<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\\.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+"""
+    with open(os.path.join(BASE_DIR, '.htaccess'), 'w', encoding='utf-8') as f:
+        f.write(htaccess)
 
 
 if __name__ == '__main__':
@@ -1337,4 +1386,5 @@ if __name__ == '__main__':
     generate_robots()
     generate_sitemap()
     generate_llms()
-    print("All site assets compiled successfully!")
+    generate_server_configs()
+    print("All site assets compiled successfully with Clean URLs!")

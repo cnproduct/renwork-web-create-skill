@@ -1,105 +1,188 @@
-# RenWork Web Create Skill · 4.2.0
+# RenWork Web Create Skill v4.3 🌐
 
-**先选赛道与买家，再从行业 Top 10 中选对标。** 比较 SEO、GEO、可比流量、设计与技术采购能力，深读各自领先者，复现关键页和有效机制，再创造目标企业的独特网站。最终交付可运行代码、预览和证据。另有内置通用模式：从本机、GitHub、Hugging Face 发现专业方法，优化指定的任意 Skill。
+[![Version](https://img.shields.io/badge/version-4.3.0-516b4b.svg)](https://github.com/cnproduct/renwork-web-create-skill)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Buyer-JTBD](https://img.shields.io/badge/Buyer%20Research-JTBD%20%2B%20Committee-blue.svg)](#)
+[![Anthropic-Frontend-Design](https://img.shields.io/badge/Frontend%20Design-Anthropic%20Anti--Slop-purple.svg)](#)
+[![Vercel-Web-Guidelines](https://img.shields.io/badge/Audit-Vercel%20Web%20Guidelines-black.svg)](#)
+[![GEO-Citability](https://img.shields.io/badge/GEO-Princeton%20KDD%202024-emerald.svg)](#)
+[![Scheduled-Engine](https://img.shields.io/badge/Scheduled%20Publishing-30--Day%20Queue-teal.svg)](#)
+[![Universal-Skill-Optimization](https://img.shields.io/badge/Optimization-Universal%20Distillation-orange.svg)](#)
+[![Security-Builtin](https://img.shields.io/badge/Security-Turnstile%20%2B%20CSP-critical.svg)](#)
 
-## 两种模式
+> **Driven by Overseas Buyer Insights: Original Design, Strict Clone, Universal Skill Distillation & 30-Day Scheduled Intelligence Engine**  
+> 企业级出海独立站与通用技能蒸馏总控技能 v4.3：以海外买家洞察驱动原创增长，深度融合 Anthropic `frontend-design` 与 Vercel `web-design-guidelines`，全面装配全自动 30 天排期行业智库与深度长文（≥3,000字/篇、≥2张工程图）定时发布引擎。
 
-- **建站**：行业/贸易机会 → 采购需求 → Top 10 候选 → 分维度择优 → 关键页与机制蒸馏 → 原创设计 → SEO/GEO与采购验收。
-- **优化 Skill**：真实任务/失败 → 能力缺口 → 专业资源发现 → 机制蒸馏 → 最小改动 → 前后验证 → 经验回写。
+---
 
-建站前必须先形成选择依据。Top 10 是相关候选池；“流量最高”须有同口径数据，“GEO 最好”须有问题集与平台采样。未知数据保留未知，不把内部评分当排名。
+## 📖 Introduction (项目升级定位)
 
-## 这次融合了什么
+现有网站复刻与建站工具往往陷入两个极端：要么简单像素级“抄作业”，把竞品的错误甚至专有侵权词原样照搬；要么全凭 AI 天马行空臆造“好看但不符合工业采购常识、千篇一律模版化（AI Slop）”的假大空页面。
 
-| 来源 | 核心方法 | 实际落点 |
-| --- | --- | --- |
-| limestone site builder | 先发现再复刻，技术/视觉/长尾分工，文化命名和图实匹配 | 阶段零选型与原创机制；历史品牌是待验证种子 |
-| OpenSEO / SE Ranking / competitor-profiling | 查询集发现竞争格局、可比档案、关键词与入口缺口 | Top 10 候选、分榜择优、相关高流量入口深读 |
-| JTBD / product-marketing / 外贸研究 | 买家任务、采购委员会、产品×国家与贸易情景 | 赛道决定、买家决策图与内容行动 |
-| frontend-design / taste / deslop | 行业驱动的视觉方向、节奏与精选动效 | 三个原创方向择优、统一设计与移动体验 |
-| Hugging Face / 本机 Skill 创建与沉淀 | 资源分类、评测思路、证据回写 | 按需发现与通用优化；不默认模型训练 |
-| Jane web-clone | 真源码、技术分流、证据分级、设计 DNA、RAW REPLAY | 基线取证与复杂特效分支 |
-| Nolan skills | computed styles/组件状态、可验证目标、迭代停止与状态 | DESIGN、完成契约、缺口驱动换 skill |
-| PixelClone | 布局蓝图、视觉/业务真相分离、控件与素材边缘 QA | 保真基线和现有业务契约 |
-| OpenDesign web-clone | 真浏览器采集、字体/图像落地、网络/交互与 strict 审计 | 完整资源和同状态对照 |
-| boyang website-rebuild | 只读镜像、哈希账本、溯源移植、确定性门 | 动效/压缩源码/冷启动验收 |
-| 本地审计与 GitHub marketingskills | 事实投影、crawl/index、信息架构、AI 可引用内容、schema | 流量图→原创页面→独立测量 |
+**RenWork Web Create Skill v4.3** 深度融合开源前沿两大顶流标杆并创新装配 30 天排期智库引擎：
+- **`frontend-design`**（来自 Anthropic 官方仓库，约 17.5 万星）：负责“**怎么设计**”，强调主题、层级、布局、字体和视觉语言的一致性，通过四大强制任务约束、两轮设计法与克制纪律，彻底根绝千篇一律的 AI 模板化；
+- **`web-design-guidelines`**（来自 Vercel Labs 官方仓库，约 3.1 万星）：负责“**有没有明显问题**”，作为前端交付前的第二轮严格体检门禁，覆盖 12 维 Web 规范（可访问性 a11y、聚焦态、表单规范、动效禁忌、微排版、CLS 防抖等），输出高信噪比 `file:line` 审计日志；
+- **`scheduled-news-engine`**（自动化 30 天排期智库发布引擎）：提前预备 30 天深度行业长文底账（每篇硬性要求 ≥3,000 字与 ≥2 张工程图，覆盖 B/C 端最新动态、前沿材料、畅销款式、B端平台异动、C端爆款与 30/60/90 天排产预测），支持云端后台定时自动发布。
 
-来源文件、版本、许可、适用边界和组合选择见 [融合矩阵](references/skill-fusion.md)。本仓库提炼方法，没有打包复制上游脚本；上游工具按需发现，核心流程无强制第三方 skill 依赖。
+构建起坚不可摧的四位一体总控体系：
+1. **Mode A（默认：买家洞察原创增长）**：买家与行业深研 → 关键页和成功机制蒸馏 → Anthropic 反模板化视觉创造 → 采购决策支持 → SEO/GEO 验证 → Vercel 12 维全域界面体检 → 30 天排期智库自动定时发布；
+2. **Mode B（复刻：1:1 严格证据复刻）**：当明确要求完整复刻时，全站探针取证、CSS 令牌提取、文化双轨重命名去风险化、100% 绝对业务契约保障；
+3. **Mode C（通用：Skill 优化与蒸馏）**：内置通用优化模式，支持优化自身及任意领域 Skill，执行两层诊断、GitHub/Hugging Face 资源甄别、六步机制蒸馏链与三态验证交付。
 
-## 典型调用
+---
 
-```text
-用 renwork-web-create-skill，基于 /path/to/company 的真实产品和履约能力，
-先研究细分赛道、目标市场和海外买家采购需求，筛选行业 Top 10 网站候选；
-分别选出 SEO、GEO、可比流量、设计与技术采购方面值得深读的标杆，说明依据。
-把高价值入口、设计与采购机制融合，在 /path/to/project 创造目标品牌的原创站。
-交付选型与标杆表、代码、预览和验收；不能凭知名度或估算声称全球第一。
+## 🏛️ 三轨工作流总控矩阵 (Triple-Track Workflow)
+
+```mermaid
+flowchart TD
+    Task([用户任务输入]) --> Check{判断核心意图}
+    
+    Check -- "优化某个 Skill<br>(包含指令: 优化这个 Skill)" --> ModeC["Mode C: 通用 Skill 优化与蒸馏<br>(两层诊断 / GitHub+HF甄别 / 六步蒸馏链 / 三态验证)"]
+    Check -- "明确指令 1:1 复刻/克隆" --> ModeB["Mode B: 完整取证复刻分支 (v3)<br>(全站探针 / 双轨重命名 / 业务契约 / 图实核验)"]
+    Check -- "建站 / 独立站 / 重构 / 默认" --> ModeA["Mode A: 买家洞察原创设计 (v4.2)<br>(JTBD / 采购委员会 / 材料叙事 / Anthropic设计 / Vercel体检 / GEO)"]
 ```
 
-```text
-用 renwork-web-create-skill 优化 /path/to/target-skill（也可给仓库地址）。
-先检查真实任务和失败，再从本机、GitHub、Hugging Face 寻找专业能力，
-蒸馏适用方法并实施最小改动，验证新旧行为，交付改动、来源与剩余缺口。
-```
+1. **买家任务与采购委员会研究 (JTBD)**：
+   - 研究最小单元固定为 **“细分品类 × 买家角色 × 目标市场 × 语言 × 采购阶段”**；
+   - 为使用者、技术评估者、商业决策者、财务风控角色 4 大角色分别配备专属证据库；
+   - 严格执行企业事实、公开观察、待验证假设的三层数据隔离。
+2. **行业与贸易格局洞察 (Trade & Seasonality)**：
+   - 建立“行业变化 → 采购影响 → 企业可兑现能力 → 买家行动”分析链；
+   - 引用 WTO Tariff、EU Access2Markets 权威贸易关税数据；
+   - 结合海运周期倒推大买家采购决策黄金窗口期。
+3. **从复刻升级为机制蒸馏 (Mechanism Distillation)**：
+   - 挑选可信度标杆、采购信息组织标杆、视觉天花板标杆 3 个互补标杆；
+   - 运用对照学习、反事实检查、跨行业类比、失败蒸馏 4 种学习方法；
+   - 借鉴 Pattern2Code 评测思路，打破 AI 过度整齐化的弊端，保留有意义的版式例外。
+4. **行业叙事与原创视觉导演 · Anthropic 反千篇一律体系 (Creative Direction)**：
+   - 必须满足 4 大强制上下文约束（采购角色、视口断点、完整8态交互、真实材料物理限制，严禁只说“做高级点”）；
+   - 执行“两轮设计规划法”：Pass 1 紧凑 Token 方案 $\rightarrow$ Pass 2 对照 Anti-AI-Slop 清单审视 $\rightarrow$ 编码；
+   - 坚决杜绝泛滥的暖奶油底色、SaaS 统一圆角卡片、全大写 tracked-out 眉题、中圆点连字、按钮尾随箭头与漫天滚动淡入淡出；
+   - 践行香奈儿“镜前卸饰”原则：大胆用在一处，克制留给全局；文案坚持主动语态与功能性导览。
+5. **用采购知识组织 SEO 与 GEO**：
+   - 将买家任务映射到真实页面：发现机会、比较方案、验证规格、评估风险、准备采购；
+   - 创造可引用的原创参数与透明算法，使 AI 搜索引擎（Perplexity、ChatGPT Search）作为权威信源引述。
+6. **上线前全域界面体检与质量门禁 · Vercel 12 维审计系统 (Pre-Flight Audit)**：
+   - 上线前强制执行第二轮严格体检：a11y 语义标签、`:focus-visible` 环、表单 `autocomplete`/报错、禁止 `transition: all`、Unicode 省略号/弯引号/tabular-nums、图片显式宽高防 CLS、移动端安全区与 300ms 触控优化；
+   - 运行自动化脚本 `scripts/layout_typography_auditor.py <dir>` 输出高信噪比 `file:line` 审计报告。
+7. **用结果反馈修正 Skill (Closed Loop)**：
+   - 真实交付后记录有效表达与误解点，回写为规则条目持续进化。
 
-只要求忠实复刻/局部优化/只读分析时保持该范围。公开发布按已有授权，不因调用本 skill 自动发布或向第三方发询盘。
+---
 
-## 工作流与结果
+## 💼 专业资源融合矩阵 (Integrated Provenance)
 
-1. 复用企业事实，比较细分赛道、市场与趋势，按行业识别采购角色和痛点。
-2. 全球发现并筛选十个相关独立域名，逐项记录来源、口径、设计和采购证据。
-3. 分维度选择通常 3–5 个互补标杆，形成 `BUYER_STRATEGY.md`，再进入复刻。
-4. 对约定关键页/机制取证与复现；明确要求完整复刻时覆盖完整范围。
-5. 建立 `TRAFFIC_MAP.md`，将查询、入口、内容、内链、证明与采购动作迁移到目标页面。
-6. 根据真实产品、行业语言与买家任务提出三个视觉方向，择优形成统一原创站和 `ORIGINALITY.md`。
-7. 验证设计、图实匹配、交互、采购路径与工程状态，独立记录索引、引用和询盘结果。
+| 资源 | 提炼的核心精华 | 在本 Skill 中的实战用途 |
+|---|---|---|
+| **Jobs to Be Done (JTBD)** | 功能/情绪/社会任务，采购触发条件与期待收益 | 从“买家是谁”深入到“为什么现在采购、怎样判断成功” |
+| **Product Marketing** | 定位、采购委员会 4 大角色、异议、替换动力与证明需求 | 分清使用者、技术员、决策者与财务，分别组织内容 |
+| **外贸市场研究 Skill** | 产品×目标国家研究、本地语言检索、事实与推断三层隔离 | 结合官方贸易关税形成目标市场机会与进入路径 |
+| **Frontend Design & Taste** | 从行业受众推导设计语言，控制构图、字体与动效呼吸感 | 建立有行业辨识度的视觉方向，拒绝俗套通用模板 |
+| **samber/cc-skills** | 研究交叉验证、设计策略先行、设计系统严密审视 | 减少泛化模板和未经核实的推断 |
+| **Free Tools** | 用产品相关的小工具解决真实买家决策问题 | 按需装配 20GP/40HQ 装柜测算器、材料耐温选型表 |
+| **Pattern2Code & Design2Code** | 布局还原评测、识别模型过度整齐化（过度对齐）偏差 | 评测原创页面，保护重点大图与特色排版节奏 |
+| **b2b-limestone-geo-site-builder** | 全球标杆排查三大巨头模型、文化双轨重命名、图实一致质检 | 驱动标杆解构、去风险重构与全链路询盘闭环 |
+| **b2b-global-brand-site-master** | 21 行业外贸决策链、默认站点安全防护、海运装柜测算器 | 驱动行业选型、默认边缘安全网关与整柜配载计算 |
+| **cross-border-product-intelligence** | TikTok/Amazon/Trends/Temu C端爆款雷达 + 海关提单 + DVI 算法 + 5x–12x 套利模型 | 驱动建站前爆品矩阵现模化、产品定位与阶梯 FOB 报价决策 |
+| **Anthropic Skill Creator** | Skill 结构规范、工作流两层差距分析、自动化评估测试 | 驱动通用技能优化模式，诊断能力缺口与清除冗余提示词 |
 
-网站交付包括代码/预览、路由与资产台账、BUYER_STRATEGY、TRAFFIC_MAP、ORIGINALITY、WORKLOG 和 design-qa。小项目可以合并报告，结论仍有可定位证据。选型记录是工作产物，不增加重复审批。无法量化流量/GEO时可暂定实施，但不得宣称已选出其冠军。
+| **Hugging Face Skills** | 数据集/模型沙箱边界与评测基准规范 | 规范外部资源甄别，明确界定 Skill 与 Dataset/Model 的技术边界 |
 
-通用优化交付目标 Skill 的可审阅改动与 `SKILL_OPTIMIZATION.md`；按目标领域评测，不对所有 Skill 套用网站标准。[完整流程](references/skill-optimization.md)
+---
 
-## 自带工具
+## 🧬 通用 Skill 优化与蒸馏能力 (Mode C)
 
-Python 3.10+，仅标准库；无需为这些助手安装浏览器或第三方包。完整复刻仍需实际可用的浏览器能力，缺失时明确未测范围。
-
-在本仓库/已安装 skill 根目录运行：
+支持按需加载优化任意领域的 Skill（包括优化自身）：
 
 ```bash
-# 单页 HTTP 原始证据、类型/sha256 台账；不执行 JS，不爬全站
-python3 scripts/site_forensics.py https://example.com/ /path/to/new-empty-evidence
-# CSS 候选；实际角色/布局由浏览器测量核实
-python3 scripts/extract_design_tokens.py /path/to/evidence/css/bundle_0.css /path/to/DESIGN.md
-# 真实已存在 HTML + 显式配置；默认 draft，拒绝覆盖现有输出
-python3 scripts/geo_seo_engine.py /path/to/public-build --config /path/to/site-config.json
-# 递归 HTML 静态检查，失败返回非零；不判视觉或生产 readiness
-python3 scripts/layout_typography_auditor.py /path/to/public-build
-# 仅本地预览，RFQ 返回未连接，不收集/打印个人询盘内容
-python3 scripts/dev_server.py 8080 /path/to/public-build
-# 无网络/无第三方依赖回归检查（本机临时 HTTP fixture）
-python3 scripts/test_tools.py
+# 典型调用指令
+用 renwork-web-create-skill 优化这个 Skill：〈本地路径或仓库地址〉。结合实际任务和失败案例，从本机、GitHub、Hugging Face 寻找专业能力，蒸馏融合后验证效果。
 ```
 
-SEO 配置与真实边界见 [SEO/schema 契约](references/b2b-seo-schema-spec.md)：输出 robots、sitemap、待应用的 seo-pages.json；可选 llms 索引仅投影公开页面，不虚构企业事实或语言 URL。应用逐页数据到源模板并重建后仍要做浏览器与线上验证；工具准备数据不是修改网站完成。
+### 1. 通用演进原则
+**理解任务 → 诊断缺口 → 寻找专业方法 → 学习有效机制 → 适配创造 → 对照验证 → 沉淀经验**
 
-## 参考资料与模板
+### 2. 两层精准诊断模型
+- **通用维度**：需求理解、工作流程、证据质量、工具使用、输出标准、验证机制、维护成本与提示词信噪比；
+- **领域维度**：仅根据目标任务动态注入（如数据清洗、复杂算法、排版渲染），**严禁向非出海建站 Skill 强加外贸、关税或 SEO/GEO 规则**。
 
-- [买家与贸易深研](references/buyer-and-trade-research.md) / [买家战略模板](templates/BUYER_STRATEGY.md)
-- [视觉导演工作单](references/mechanism-distillation-and-creative-direction.md)
-- [优化报告模板](templates/SKILL_OPTIMIZATION.md)
-- [RFQ 后端说明](references/rfq-backend.md) / [Turnstile 验证](references/turnstile.md)
-- [石灰石历史案例与通用提示链](references/benchmark-discovery-methodology.md)
-- [行业选型、采购洞察与 Top 10 标杆发现](references/benchmark-discovery.md)
-- [通用 Skill 优化与蒸馏](references/skill-optimization.md)
-- [行为评测场景](references/evaluation-scenarios.md)
-- [复刻/原创验收](references/pixel-clone-contract.md)
-- [流量来源和原创迁移](references/traffic-and-originality.md)
-- [SEO 与 schema](references/b2b-seo-schema-spec.md)
-- [GEO 可引用内容](references/geo-citability-guide.md)
-- [设计 token 示例](references/b2b-design-tokens.md)
-- [行业采购组件](references/procurement-components.md)
-- [默认站点防护](references/site-protection.md) 与 [边缘 Worker 模板](templates/edge-worker.mjs)
+### 3. 六步机制蒸馏链
+拒绝简单复制大段提示词，所有采纳的机制按六步链记录演进：
+`来源观察 → 有效机制 → 适用条件 → 目标 Skill 适配 → 产物具体变化 → 验证证据`
 
-`assets/industries.json` 是行业问题/字段提示，标准名称不证明目标企业认证。`templates/b2b-factory-starter/` 保留历史 Xinghui 演示，内容与素材未由本 skill 证明，已标演示、noindex、禁爬、无生产询盘；不能直接作为任何目标企业的事实源或公开发布包。不承诺固定 SKU 数、七语站、FAQ 富结果、精确装柜配载或 AI 引用率。
+### 4. 经验三态分类 (Three Confidence States)
+- **[已验证 Verified]**：有自动化测试脚本或真实执行日志通过；
+- **[推导规则 Inferred Rules]**：合乎逻辑推导得出，明确标明适用范围与假设前提；
+- **[待试验 Hypothetical]**：新设想或未经充分实操检验，标注待测试，绝不伪装为成熟经验。
 
-[SKILL.md](SKILL.md) 是运行入口。[MIT License](LICENSE) 适用于本仓库自有内容，不授予第三方品牌、网站素材或参考代码的权利。
+---
+
+## 🎯 四大典型验收测试场景 (Definition of Done)
+
+### 场景 A：石材工程采购 (Architectural Stone / Limestone)
+- **采购角色**：建筑师、景观工程师、商业总包采购；
+- **核心任务**：ASTM C568 抗折抗压、AS 4586 防滑等级、大面积色差控制、20GP 重货限重防爆柜；
+- **视觉风格**：大地燕麦沙色调、DM Serif Display 典雅大标题、微距凹凸肌理与顶豪落地实景 100% 对齐。
+
+### 场景 B：餐厨与食品容器 (Food Containers / Bento Boxes)
+- **采购角色**：商超品类买手、亚马逊大卖品牌商、餐饮供应链总监；
+- **核心任务**：FDA 21 CFR / LFGB 德国食品接触检测、-20°C~120°C 微波冷冻安全、二次注塑防漏胶圈；
+- **视觉风格**：纯净白底高对比、深森林绿安全点缀、圆润倒角、高密度参数抽屉。
+
+### 场景 C：工业电子与自动化配件 (Industrial Electronics / Hardware)
+- **采购角色**：硬件研发工程师、系统集成商、采购风控主管；
+- **核心任务**：RoHS/REACH 环保认证、电压公差、接口标准、元器件替代料方案；
+- **视觉风格**：深钛灰与精密蓝底色、等宽工业字体 (Mono)、线框剖面图、无多余装饰动效。
+
+### 场景 D：通用 Skill 优化与跨领域蒸馏 (Universal Skill Optimization)
+- **核心任务**：执行两层缺口诊断，剔除夸大自述与无效提示词，生成 `templates/SKILL_OPTIMIZATION.md` 报告并通过自动化测试；
+- **合格标准**：无强制无关规则、代码防御性提升、三态经验分类准确归档。
+
+---
+
+## 📦 Directory Structure (目录结构)
+
+```text
+renwork-web-create-skill/
+├── SKILL.md                          # 核心技能指令与三轨工作流路由 (v4.1.0)
+├── README.md                         # 技能使用手册与架构解析
+├── LICENSE                           # MIT 开源协议
+├── assets/
+│   └── industries.json               # 21 行业外贸参数与便当盒/餐厨容器标准配置
+├── scripts/
+│   ├── site_forensics.py             # 目标站点深度探针与 DOM/CSS/SKU 提取
+│   ├── extract_design_tokens.py      # CSS 令牌解析与 DESIGN.md 自动生成
+│   ├── geo_seo_engine.py             # 5合1 Schema、Sitemap、robots.txt、llms.txt 编译器
+│   ├── layout_typography_auditor.py  # 排版对齐、容器溢出与图片无障碍全域审计
+│   ├── test_tools.py                 # 自动化工具链综合测试脚本
+│   └── dev_server.py                 # 轻量本地静态预览与 RFQ API 收集服务
+├── references/
+│   ├── buyer-and-trade-research.md   # 买家任务、采购委员会与官方贸易格局研究指南
+│   ├── cross-border-product-intelligence.md # B2B & B2C 跨境全链路商业产品情报深度穿透指南
+│   ├── mechanism-distillation-and-creative-direction.md # 机制蒸馏与原创视觉导演指南
+│   ├── skill-optimization.md         # 通用 Skill 优化、两层诊断与机制蒸馏深度指南
+│   ├── benchmark-discovery-methodology.md # 全球标杆排查与三大巨头模型深度方法论
+│   ├── site-protection.md            # 默认站点防护、防抓取与反镜像嵌套规范
+│   ├── procurement-components.md     # 行业采购组件、装柜测算器与 RFQ 协议
+│   ├── turnstile.md                  # Cloudflare Turnstile 隐形人机验证规范
+│   ├── rfq-backend.md                # Cloudflare Worker 询盘处理与落盘后端
+│   ├── b2b-design-tokens.md          # 国际高转化 B2B 视觉语言规范
+│   ├── geo-citability-guide.md       # Princeton KDD 2024 GEO 白皮书
+│   ├── b2b-seo-schema-spec.md        # 5合1 结构化数据 Schema 黄金标准
+│   ├── pixel-clone-contract.md       # 像素级复刻与绝对业务契约指南
+│   ├── traffic-and-originality.md    # 采购任务流量映射与原创性对照指南
+│   └── skill-fusion.md               # 外部资源与上游依赖融合台账
+├── templates/
+│   ├── BUYER_STRATEGY.md             # 项目级买家战略与增长简报标准模板
+│   ├── SKILL_OPTIMIZATION.md         # 通用 Skill 优化与机制蒸馏报告模板
+│   ├── edge-worker.mjs               # Cloudflare / Edge 安全防护与 API 路由
+│   ├── assets/js/sourcing_estimator.js # 20GP / 40HQ 国际海运集装箱装柜测算模块
+│   └── b2b-factory-starter/          # 开箱即用的工业出海官网高保真套件
+└── tests/
+    └── test_skill_assets.py          # 资产与脚本完整性自动化测试套件
+```
+
+---
+
+## 📄 License
+MIT © 2026 [cnproduct](https://github.com/cnproduct) · RenWork AI Innovation Team

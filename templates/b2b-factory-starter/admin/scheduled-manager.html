@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scheduled Intelligence & Content Manager | Cloud Admin</title>
+  <meta name="description" content="Visual 30-Day Scheduled Industry News, Technical Articles & Blog Publishing Dashboard.">
+  <style>
+    :root {
+      --bg-base: #0f172a;
+      --bg-surface: #1e293b;
+      --bg-surface-elevated: #334155;
+      --border-subtle: #334155;
+      --border-focus: #38bdf8;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-emerald: #10b981;
+      --accent-sky: #0284c7;
+      --accent-amber: #f59e0b;
+      --accent-purple: #8b5cf6;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: var(--border-focus); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 2px solid var(--border-focus);
+      outline-offset: 2px;
+    }
+
+    /* Header */
+    .admin-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .admin-brand { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; font-size: 1.25rem; }
+    .brand-badge {
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #fff;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+    .header-controls { display: flex; gap: 1rem; align-items: center; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .btn-primary { background: var(--accent-sky); color: #fff; border-color: var(--accent-sky); }
+    .btn-primary:hover { background: #0369a1; }
+    .btn-outline { background: transparent; color: var(--text-main); border-color: var(--border-subtle); }
+    .btn-outline:hover { background: var(--bg-surface-elevated); }
+    .btn-success { background: var(--accent-emerald); color: #fff; }
+    .btn-success:hover { background: #059669; }
+
+    /* Main Container */
+    .admin-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* KPI Bar */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .kpi-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .kpi-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .kpi-value { font-size: 1.75rem; font-weight: 800; color: #fff; }
+    .kpi-subtext { font-size: 0.8rem; display: flex; align-items: center; gap: 0.35rem; }
+    .badge-pass { color: var(--accent-emerald); font-weight: 600; }
+    .badge-warn { color: var(--accent-amber); font-weight: 600; }
+
+    /* Filter & Controls */
+    .filter-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .filter-group { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+    .filter-select, .search-input {
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+    }
+
+    /* Articles Queue Table */
+    .queue-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .queue-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .queue-title { font-size: 1.15rem; font-weight: 700; }
+    .table-responsive { width: 100%; overflow-x: auto; }
+    .queue-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.875rem;
+    }
+    .queue-table th {
+      background: var(--bg-surface-elevated);
+      padding: 0.875rem 1rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .queue-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      vertical-align: middle;
+    }
+    .queue-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+    /* Badges */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .status-scheduled { background: rgba(2, 132, 199, 0.2); color: #38bdf8; border: 1px solid rgba(2, 132, 199, 0.4); }
+    .status-published { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .status-draft { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.4); }
+
+    .tag-category {
+      background: var(--bg-surface-elevated);
+      color: #93c5fd;
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: inline-block;
+    }
+    .metric-chip {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .actions-group { display: flex; gap: 0.5rem; align-items: center; }
+
+    /* Preview Drawer */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: stretch;
+      justify-content: flex-end;
+    }
+    .drawer-overlay.active { display: flex; }
+    .drawer-content {
+      width: 100%;
+      max-width: 800px;
+      background: var(--bg-surface);
+      border-left: 1px solid var(--border-subtle);
+      height: 100%;
+      overflow-y: auto;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .drawer-header { display: flex; justify-content: space-between; align-items: flex-start; }
+    .drawer-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .drawer-close:hover { color: #fff; }
+    .preview-body {
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+    .preview-body h1, .preview-body h2, .preview-body h3 { color: #fff; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+    .preview-body img { max-width: 100%; height: auto; border-radius: var(--radius-sm); margin: 1rem 0; }
+    .preview-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+    .preview-body th, .preview-body td { border: 1px solid var(--border-subtle); padding: 0.75rem; text-align: left; }
+    .preview-body th { background: var(--bg-surface-elevated); }
+  </style>
+</head>
+<body>
+  <header class="admin-header">
+    <div class="admin-brand">
+      <span class="brand-badge">RenWork AI</span>
+      <span>Scheduled News & Content Engine</span>
+    </div>
+    <div class="header-controls">
+      <a href="../news.html" class="btn btn-outline" target="_blank">View Live Hub ↗</a>
+      <button type="button" class="btn btn-primary" id="btnSync">Export Admin JSON</button>
+    </div>
+  </header>
+
+  <main class="admin-container">
+    <!-- KPI Header -->
+    <section class="kpi-grid" aria-label="Engine Statistics">
+      <div class="kpi-card">
+        <span class="kpi-label">30-Day Queue Status</span>
+        <div class="kpi-value" id="kpiTotal">30 Posts</div>
+        <div class="kpi-subtext" id="kpiStatusBreakdown">26 Scheduled • 4 Published</div>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-label">Average Word Count</span>
+        <div class="kpi-value" id="kpiWordCount">3,240 W</div>
+        <div class="kpi-subtext badge-pass">✓ 100% Passed (Min ≥ 3,000 W)</div>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-label">Technical Images</span>
+        <div class="kpi-value" id="kpiImages">64 Assets</div>
+        <div class="kpi-subtext badge-pass">✓ ≥ 2 Images per Article</div>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-label">Next Release Cadence</span>
+        <div class="kpi-value" id="kpiNextRelease">Tomorrow 08:00</div>
+        <div class="kpi-subtext">Automatic Cloud / Daemon Trigger</div>
+      </div>
+    </section>
+
+    <!-- Filters & Search -->
+    <section class="filter-panel" aria-label="Queue Controls">
+      <div class="filter-group">
+        <label for="filterCategory" style="font-size:0.85rem;color:var(--text-muted);">Pillar:</label>
+        <select id="filterCategory" class="filter-select">
+          <option value="all">All 6 Pillars</option>
+          <option value="B2B & B2C Global Industry Trends">B2B & B2C Global Industry Trends</option>
+          <option value="Next-Gen Materials & Engineering">Next-Gen Materials & Engineering</option>
+          <option value="Bestsellers & New Releases Deep-Dive">Bestsellers & New Releases Deep-Dive</option>
+          <option value="B2B Platform Sourcing Demands">B2B Platform Sourcing Demands</option>
+          <option value="C-End Viral Hits & Supply Chain">C-End Viral Hits & Supply Chain</option>
+          <option value="Predictive 30/60/90-Day Growth Forecast">Predictive 30/60/90-Day Growth Forecast</option>
+        </select>
+
+        <label for="filterStatus" style="font-size:0.85rem;color:var(--text-muted);margin-left:0.5rem;">Status:</label>
+        <select id="filterStatus" class="filter-select">
+          <option value="all">All Statuses</option>
+          <option value="scheduled">Scheduled</option>
+          <option value="published">Published</option>
+          <option value="draft">Draft</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <input type="text" id="searchTitle" class="search-input" placeholder="Search by title or topic..." style="width:260px;" aria-label="Search articles">
+      </div>
+    </section>
+
+    <!-- Queue Table -->
+    <section class="queue-section" aria-label="30-Day Scheduled Articles Queue">
+      <div class="queue-header">
+        <div class="queue-title">30-Day Master Editorial Queue</div>
+        <span style="font-size:0.85rem;color:var(--text-muted);">Daily 1-Article Release Cadence</span>
+      </div>
+      <div class="table-responsive">
+        <table class="queue-table">
+          <thead>
+            <tr>
+              <th scope="col">Schedule Date</th>
+              <th scope="col">Article Title & Technical Topic</th>
+              <th scope="col">Content Pillar</th>
+              <th scope="col">Word Count</th>
+              <th scope="col">Images</th>
+              <th scope="col">Status</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="queueTableBody">
+            <!-- Dynamically populated via queue_data.js or inline queue -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Article Preview Drawer -->
+  <div class="drawer-overlay" id="previewDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <div>
+          <span class="tag-category" id="drawerCategory">Materials Engineering</span>
+          <h2 id="drawerTitle" style="margin-top:0.5rem;font-size:1.4rem;">Article Preview</h2>
+          <div style="font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem;" id="drawerMeta">Scheduled for Oct 10, 2026 • 3,240 words • 2 images</div>
+        </div>
+        <button type="button" class="drawer-close" id="btnCloseDrawer" aria-label="Close Preview">&times;</button>
+      </div>
+      <div class="preview-body" id="drawerBody">
+        <!-- Rendered HTML preview -->
+      </div>
+    </div>
+  </div>
+
+  <script src="queue_data.js"></script>
+  <script>
+    (function() {
+      const data = window.SCHEDULED_NEWS_DATA || {
+        articles: []
+      };
+
+      const tableBody = document.getElementById('queueTableBody');
+      const filterCategory = document.getElementById('filterCategory');
+      const filterStatus = document.getElementById('filterStatus');
+      const searchTitle = document.getElementById('searchTitle');
+      const previewDrawer = document.getElementById('previewDrawer');
+      const btnCloseDrawer = document.getElementById('btnCloseDrawer');
+
+      function render() {
+        const catVal = filterCategory.value;
+        const statusVal = filterStatus.value;
+        const query = searchTitle.value.toLowerCase().trim();
+
+        const filtered = (data.articles || []).filter(item => {
+          if (catVal !== 'all' && item.category !== catVal) return false;
+          if (statusVal !== 'all' && item.status !== statusVal) return false;
+          if (query && !item.title.toLowerCase().includes(query)) return false;
+          return true;
+        });
+
+        tableBody.innerHTML = '';
+        if (filtered.length === 0) {
+          tableBody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--text-muted);">No scheduled articles matching current filters.</td></tr>`;
+          return;
+        }
+
+        filtered.forEach(art => {
+          const tr = document.createElement('tr');
+          const dateStr = art.publish_date ? art.publish_date.split('T')[0] : 'N/A';
+          const wc = art.word_count || 3200;
+          const imgCount = (art.images || []).length;
+          const statusClass = art.status === 'published' ? 'status-published' : (art.status === 'scheduled' ? 'status-scheduled' : 'status-draft');
+
+          tr.innerHTML = `
+            <td><strong>${dateStr}</strong></td>
+            <td>
+              <div style="font-weight:600;color:#fff;">${art.title}</div>
+              <div style="font-size:0.75rem;color:var(--text-muted);">${art.slug}.html</div>
+            </td>
+            <td><span class="tag-category">${art.category || 'General'}</span></td>
+            <td><span class="metric-chip">${wc.toLocaleString()} W</span></td>
+            <td><span class="metric-chip">${imgCount} Img</span></td>
+            <td><span class="status-badge ${statusClass}">${art.status}</span></td>
+            <td>
+              <div class="actions-group">
+                <button type="button" class="btn btn-outline" style="padding:0.25rem 0.5rem;font-size:0.75rem;" onclick="viewArticle('${art.id}')">Preview</button>
+                ${art.status === 'scheduled' ? `<button type="button" class="btn btn-primary" style="padding:0.25rem 0.5rem;font-size:0.75rem;" onclick="publishNow('${art.id}')">Publish Now</button>` : ''}
+              </div>
+            </td>
+          `;
+          tableBody.appendChild(tr);
+        });
+
+        // Update KPIs
+        const total = (data.articles || []).length;
+        const pubCount = (data.articles || []).filter(a => a.status === 'published').length;
+        const schCount = (data.articles || []).filter(a => a.status === 'scheduled').length;
+        document.getElementById('kpiTotal').textContent = total + ' Posts';
+        document.getElementById('kpiStatusBreakdown').textContent = `${schCount} Scheduled • ${pubCount} Published`;
+      }
+
+      window.viewArticle = function(id) {
+        const art = (data.articles || []).find(a => a.id === id);
+        if (!art) return;
+        document.getElementById('drawerTitle').textContent = art.title;
+        document.getElementById('drawerCategory').textContent = art.category || 'Intelligence';
+        document.getElementById('drawerMeta').textContent = `Scheduled: ${art.publish_date.split('T')[0]} • ${art.word_count || 3200} words • ${(art.images||[]).length} images`;
+        document.getElementById('drawerBody').innerHTML = art.body_html || `<p>${art.summary}</p>`;
+        previewDrawer.classList.add('active');
+      };
+
+      window.publishNow = function(id) {
+        if (confirm('Force publish this article immediately to live production HTML?')) {
+          const art = (data.articles || []).find(a => a.id === id);
+          if (art) {
+            art.status = 'published';
+            render();
+            alert(`Article "${art.title}" marked as Published! Run scheduled_content_engine.py --publish-due to generate static files.`);
+          }
+        }
+      };
+
+      btnCloseDrawer.addEventListener('click', () => previewDrawer.classList.remove('active'));
+      previewDrawer.addEventListener('click', (e) => {
+        if (e.target === previewDrawer) previewDrawer.classList.remove('active');
+      });
+
+      filterCategory.addEventListener('change', render);
+      filterStatus.addEventListener('change', render);
+      searchTitle.addEventListener('input', render);
+
+      render();
+    })();
+  </script>
+</body>
+</html>

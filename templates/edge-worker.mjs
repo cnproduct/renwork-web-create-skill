@@ -23,6 +23,17 @@ export default {
     const url = new URL(request.url);
     // Compare the raw encoded path against build output; never serve arbitrary files.
     const isInquiry = policy.inquiryPath && url.pathname === policy.inquiryPath;
+    
+    // Scheduled publication gatekeeper: protect unreleased articles before their publish_date
+    const scheduledRelease = policy.scheduledArticles && policy.scheduledArticles[url.pathname];
+    if (scheduledRelease) {
+      const isDue = Date.now() >= Date.parse(scheduledRelease);
+      const isAuthorizedPreview = url.searchParams.get('preview_token') === env.ADMIN_PREVIEW_TOKEN;
+      if (!isDue && !isAuthorizedPreview) {
+        return reply(404, 'Article not yet published');
+      }
+    }
+
     if (!isInquiry && !publicPaths.has(url.pathname)) return reply(404, 'Not found');
     if (isInquiry ? request.method !== 'POST' : !['GET', 'HEAD'].includes(request.method)) {
       return reply(405, 'Method not allowed', {Allow: isInquiry ? 'POST' : 'GET, HEAD'});

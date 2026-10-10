@@ -2,8 +2,6 @@
 
 ## 复刻基线
 
-进入前须有 [发现记录](benchmark-discovery.md) 的状态、选择理由与学习范围。默认对约定关键页面/机制验收，只有明确要求整站时才按完整复刻验收；十站候选池不意味着复制十个完整网站。
-
 先记录范围、路由、模板、产品与语言。完整整站要实现全部约定路由及功能；模板抽样只减少重复浏览器检查，不减少实现范围。原始证据只读，资源 manifest 记录 URL、最终 URL、类型、状态、路径、sha256 与许可；源代码与运行时结论可回到文件/行号/网络或帧记录。
 
 截图需同视口、浏览器缩放、设备比、字体加载、内容、滚动位置与交互状态；至少桌面和 390×844，其他断点按参考站与风险增加。记录原站自身的重复截图噪声，动画冻结只用于双方相同的对照条件，同时另测真实动效。不得只截首屏、不等字体或拿空白帧作通过证据。
@@ -16,7 +14,7 @@
 
 ## 原创站
 
-依据 BUYER_STRATEGY.md、ORIGINALITY.md、目标企业事实和 TRAFFIC_MAP.md 验收，不与参考站要求像素相等。逐项检查目标品牌/域名/联系端点、产品/语言覆盖、SKU与场景匹配、原创内容/影像/构图、买家选型到采购路径、移动阅读、键盘与 reduced-motion。
+依据 ORIGINALITY.md、目标企业事实和 TRAFFIC_MAP.md 验收，不与参考站要求像素相等。逐项检查目标品牌/域名/联系端点、产品/语言覆盖、原创内容/影像/构图、主要应用路径、采购信息、移动阅读、键盘与 reduced-motion。
 
 复刻基线不通过时继续修复；确实受阻则明确 baseline partial/blocked，已实现的原创站可独立测试，但不能倒推基线 passed。历史模板演示也不能作为原站截图基线。
 
@@ -24,8 +22,6 @@
 
 ```text
 scope / source version / target version / preview URL
-discovery_result: READY | PROVISIONAL | BLOCKED
-learning_scope: key_pages_and_mechanisms | full_clone
 routes: known / required / implemented / tested / blocked
 products and locales: required / implemented / tested
 baseline_result: passed | partial | blocked

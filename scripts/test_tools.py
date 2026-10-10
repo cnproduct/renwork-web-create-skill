@@ -17,6 +17,7 @@ from dev_server import B2BRequestHandler
 from extract_design_tokens import extract_tokens
 from geo_seo_engine import generate_seo_geo_assets, SM, XHTML
 from layout_typography_auditor import audit_directory, schema_shape
+from scheduled_content_engine import audit_queue, count_words
 from site_forensics import run_forensics
 
 
@@ -130,7 +131,14 @@ def main():
             finally:
                 server.shutdown()
                 worker.join()
-    print('PASS: real routes/hreflang, identity isolation, draft/release, invalid input, nested audit, CSS evidence, HTTP types/hashes, disconnected RFQ.')
+    # Regression check for scheduled_content_engine
+    short_queue = {"articles": [{"id": "bad-1", "slug": "short-art", "title": "Too Short", "word_count": 500, "images": [], "publish_date": "2026-10-10T00:00:00Z"}]}
+    errs, warns, msgs = audit_queue(short_queue)
+    assert errs >= 3  # word_count < 3000, images < 2, total < 30
+    assert any("fewer than required 30 days" in m for m in msgs)
+    assert any("fewer than minimum 2" in m for m in msgs)
+
+    print('PASS: real routes/hreflang, identity isolation, draft/release, invalid input, nested audit, CSS evidence, HTTP types/hashes, disconnected RFQ, scheduled engine 30-day queue.')
 
 
 if __name__ == '__main__':

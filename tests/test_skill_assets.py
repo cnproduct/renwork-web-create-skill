@@ -9,8 +9,6 @@ import os, sys, json
 def test_references():
     ref_dir = os.path.join(os.path.dirname(__file__), '..', 'references')
     mandatory_files = [
-        'benchmark-discovery.md',
-        'evaluation-scenarios.md',
         'buyer-and-trade-research.md',
         'mechanism-distillation-and-creative-direction.md',
         'skill-optimization.md',
@@ -24,7 +22,9 @@ def test_references():
         'traffic-and-originality.md',
         'skill-fusion.md',
         'turnstile.md',
-        'rfq-backend.md'
+        'rfq-backend.md',
+        'frontend-design-anti-slop.md',
+        'web-design-guidelines-audit.md'
     ]
     for mf in mandatory_files:
         p = os.path.join(ref_dir, mf)

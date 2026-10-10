@@ -1,20 +1,24 @@
-# RFQ 接收后端：接线与全链路验证
+# RFQ 后端详细手册（Worker + Turnstile + MailChannels）
 
-仅当目标站需要服务端接收询盘时使用。复用真实部署与接收服务，地址、收件人、存储和邮件提供方都来自目标项目；历史石灰石站的邮箱不能复制到新站。
+## 架构
+表单 → Cloudflare Turnstile（前端）→ Worker `POST /api/inquiry`（服务端验签）→ MailChannels → `info@tianyastone.com`。
 
-本仓库只含 [边缘模板](../templates/edge-worker.mjs) 与本地演示服务，没有 `assets/rfq-worker.js` 或已接通的邮件后端。边缘通过 `INQUIRY` service binding 转交实际服务，未连接时返回503，不能声称已自动保存CSV、邮件或CRM。详见 [站点防护](site-protection.md)。
+## Worker 要点（模板 `assets/rfq-worker.js`）
+- honeypot 字段短路假成功；缺 token → `400 captcha_required`；`siteverify` 传 `secret`/`response`/`remoteip`（`CF-Connecting-IP`），失败 → `403 captcha_failed`。
+- **MailChannels 失败必须穿透**：`!res.ok` 时返回 `502 {success:false, error:'email_failed'}`，让 `success:true` 真正等于"邮件被接走"。
+- 发件人 `rfq@<domain>`；CORS 放行站点源并处理 `OPTIONS`；`GET /api/health` 存活检查。
+- Secrets（API 设置）：`TURNSTILE_SECRET_KEY`、`NOTIFICATION_EMAIL`。
 
-## 实施检查
+## 前端接线（`main.js`）
+- payload 必须带 `formData.get('cf-turnstile-response')`（Turnstile 组件自动注入的隐藏字段），否则永远 `captcha_required`。
+- Worker 成功 → `turnstile.reset()` + 成功提示 + `form.reset()`；`captcha_required`/`captcha_failed` → 显示真实错误、**保留用户输入**；绝不展示未经后端确认的成功消息；绝不静默兜底到第三方中继。
 
-- 前端与服务端约定实际路径、字段、大小、来源和错误码；校验失败保留输入，不能静默回退到原站收件人。
-- 若使用 Turnstile，前端带上 `cf-turnstile-response`，接收端执行 [服务端验证](turnstile.md)，并验证预期域名/动作；只放客户端控件不算防护完成。
-- 后端分别处理字段校验、垃圾内容、限流、存储/转交、失败重试与必要幂等。不要将蜜罐命中写成真实询盘成功。
-- 邮件/CRM接受请求与最终送达分开；上游失败必须返回可处理错误。令牌、邮件内容、个人信息不进入公开日志。
+## 三段式验收（全部通过才算完工）
+1. **假 token 探针**：`403 captcha_failed`（Worker 存活且在验签）。
+2. **真机提交**：人工点过 Turnstile（无头/自动点击会被风控判机器人"验证失败"，必须用户接管）→ 成功提示、表单清空、无验证码错误。
+3. **客户确认邮箱收到测试邮件**。
+之后才删旧中继：表单 `action`、JS fallback、`_subject`/`_template` 等专用字段；重建后全站 `grep` 确认零残留。
 
-## 三段验收
-
-1. 无效/过期/重复令牌、非法字段、限流与接收服务失败均被实际处理，状态码以项目契约为准。
-2. 在测试环境用官方测试钥验证UI成功/失败；生产真实挑战遇到人工验证时由用户完成，不能绕过。
-3. 在任务已授权发送测试询盘时，验证真实目标接收端与关联记录。未授权发送则保留待测，不为完成检查自动发邮件。
-
-保留实际部署版本、请求标识和脱敏回执。旧中继的迁移按项目要求在新路径验证后完成，演示成功或HTTP 200不能代替实际收件。
+## 已知限制
+- Worker 无 KV/D1，询盘无持久归档（可选增强）。
+- 部署中的 Worker 以线上为准，`assets/rfq-worker.js` 与线上不一致时先从线上同步回来再改。

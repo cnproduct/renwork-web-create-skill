@@ -38,7 +38,7 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.12);
-  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Base Reset */
@@ -731,8 +731,9 @@ button, input, select, textarea {
   margin-bottom: 1.5rem;
 }
 
-.catalogue-search input:focus {
-  outline: none;
+.catalogue-search input:focus-visible {
+  outline: 2px solid var(--color-accent-strong);
+  outline-offset: 1px;
   border-color: var(--color-accent-strong);
   box-shadow: 0 0 0 3px rgba(81, 107, 75, 0.15);
 }
@@ -1118,8 +1119,9 @@ details[open] .faq-icon {
   transition: var(--transition);
 }
 
-.form-control:focus {
-  outline: none;
+.form-control:focus-visible {
+  outline: 2px solid var(--color-accent-strong);
+  outline-offset: 1px;
   border-color: var(--color-accent-strong);
   box-shadow: 0 0 0 3px rgba(81, 107, 75, 0.15);
 }
